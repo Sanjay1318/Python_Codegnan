@@ -86,3 +86,62 @@ while i in range(n):
      i+=1
      print(a.rstrip("*"))
 '''
+
+'''
+def modify_string(text):
+    result = ""
+    i = 0
+    
+    while i in range(len(text)):
+        ch = text[i]
+        
+        # Check if character is lowercase alphabet
+        if ch >= 'a' and ch <= 'z':
+            result += ch.upper()
+        
+        # Check if character is uppercase alphabet
+        elif ch >= 'A' and ch <= 'Z':
+            result += ch
+        
+        # Replace digits and special characters with '*'
+        else:
+            result += "*"
+        
+        i += 1
+    
+    return result
+
+
+# Taking random string input from user
+user_input = input("Enter a random string: ")
+
+# Calling function
+output = modify_string(user_input)
+
+print("Modified String:", output)
+'''
+
+'''
+marks = list(map(int,input().split()))
+passed_marks = [m for m in marks if m > 40]
+sq_passed_marks = [m**2 for m in passed_marks]
+print("Original Marks:",marks)
+print("Passed marks:",passed_marks)
+print("Squared passed marks:",sq_passed_marks)
+'''
+
+# Shopping mall billing system
+'''
+def calculate_bill():
+    amount = float(input())
+    def apply_discount(value):
+        if value >= 5000:
+            disc = (lambda x: x * 0.10)(value)
+        else:
+            disc = (lambda x: x * 0.05)(value)
+        final_amount = value - disc
+        return final_amount
+    pay_amount = apply_discount(amount)
+    print(f"Final payable amount: \u20B9{pay_amount}")
+calculate_bill()
+'''
