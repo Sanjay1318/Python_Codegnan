@@ -145,3 +145,78 @@ def calculate_bill():
     print(f"Final payable amount: \u20B9{pay_amount}")
 calculate_bill()
 '''
+#---------------------------------------------------------------------------
+'''
+import math
+import random
+from datetime import datetime
+name = input("Enter name ")
+amount = float(input("Enter total purchase amount "))
+f_amount = 0.05 * amount
+res = math.ceil(f_amount)
+bill_num = random.randint(1,100)
+dt = datetime.today()
+print(f"Bill number: {bill_num}")
+print(f"Original Amount is: {amount}")
+print(f"Bill Amount after including tax is: {res+amount}")
+print(f"Current date and time : {dt}")
+'''
+
+'''
+import random
+from datetime import datetime
+def q3(name, password):
+    print("Select an option: 1.Sign Up or 2.Login")
+    try:
+        user_ch = int(input())
+    except ValueError:
+        print("Invalid input. Please enter 1 or 2.")
+        return
+    if user_ch == 1:
+        print("Enter your name: ")
+        n = input().strip()
+        print("Enter password: ")
+        userpass = input().strip()
+        print("Confirm password: ")
+        confirm_pass = input().strip()
+        while userpass != confirm_pass:
+            print("Passwords don't match. Enter password again:")
+            userpass = input().strip()
+            print("Confirm password: ")
+            confirm_pass = input().strip()
+        print(f"Account created successfully for {n}")
+    elif user_ch == 2:
+        print("Enter name: ")
+        na = input().strip()
+        print("Select an option: 1.Login by password 2.Login by OTP")
+        try:
+            ch = int(input("Select a choice 1 or 2: "))
+        except ValueError:
+            print("Invalid choice.")
+            return
+        if ch == 1:
+            print("Enter your password: ")
+            entered_pass = input().strip()
+            if entered_pass == password:
+                print("Login successful!")
+            else:
+                print("Invalid password.")
+        elif ch == 2:
+            otp = random.randint(1000, 9999)
+            print(f"The generated OTP is {otp}")
+            try:
+                o = int(input("Enter your OTP: "))
+                if o == otp:
+                    print("Valid OTP, Login Successful!")
+                else:
+                    print("Invalid OTP. Login unsuccessful.")
+            except ValueError:
+                print("Invalid OTP entered.")
+        else:
+            print("Invalid Choice")
+    else:
+        print("Invalid Option Selected")
+name = input("Enter name: ").strip()
+password = input("Enter password: ").strip()
+q3(name, password)
+'''
