@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LOUIS VUITTON – Official India Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+  <style>
+    :root {
+      --lv-black: #0a0a0a;
+      --lv-white: #faf8f5;
+      --lv-gold: #b5985a;
+      --lv-gold-light: #d4b97a;
+      --lv-cream: #f5f0e8;
+      --lv-gray: #888;
+      --lv-light-gray: #e8e4dc;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'EB Garamond', serif;
+      --font-sans: 'Montserrat', sans-serif;
+      --nav-h: 62px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--lv-white);
+      color: var(--lv-black);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      overflow-x: hidden;
+    }
+
+    /* ════════════════════════════
+       FIXED HEADER
+    ════════════════════════════ */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1100;
+      transition: background 0.38s ease, box-shadow 0.38s ease;
+      background: transparent;
+    }
+    #site-header.scrolled {
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+    }
+
+    /* top bar */
+    .top-bar {
+      background: rgba(0,0,0,0.45);
+      color: rgba(255,255,255,0.82);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 7px 20px;
+      transition: background 0.38s;
+    }
+    #site-header.scrolled .top-bar { background: var(--lv-black); }
+    .top-bar a { color: inherit; text-decoration: none; }
+    .top-bar a:hover { color: var(--lv-gold-light); }
+
+    /* nav row */
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+      padding: 0 28px;
+    }
+
+    .nav-left-cluster { display: flex; align-items: center; gap: 22px; }
+
+    .nav-btn {
+      display: flex; align-items: center; gap: 7px;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-sans); font-size: 11px;
+      font-weight: 400; letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff; padding: 0;
+      transition: color 0.2s;
+    }
+    #site-header.scrolled .nav-btn { color: var(--lv-black); }
+    .nav-btn:hover { color: var(--lv-gold) !important; }
+    .nav-btn i { font-size: 17px; }
+
+    .logo-center {
+      font-family: var(--font-sans); font-size: 20px;
+      font-weight: 700; letter-spacing: 0.34em;
+      text-transform: uppercase; color: #fff;
+      text-decoration: none; white-space: nowrap;
+      transition: color 0.38s; flex: 1; text-align: center;
+    }
+    #site-header.scrolled .logo-center { color: var(--lv-black); }
+
+    .nav-right-cluster { display: flex; align-items: center; gap: 18px; }
+
+    .call-us-link {
+      font-family: var(--font-sans); font-size: 11px;
+      font-weight: 400; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #fff;
+      text-decoration: none; white-space: nowrap;
+      transition: color 0.38s;
+    }
+    #site-header.scrolled .call-us-link { color: var(--lv-black); }
+    .call-us-link:hover { color: var(--lv-gold) !important; }
+
+    .icon-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: 18px; color: #fff; padding: 2px;
+      line-height: 1; transition: color 0.38s;
+    }
+    #site-header.scrolled .icon-btn { color: var(--lv-black); }
+    .icon-btn:hover { color: var(--lv-gold) !important; }
+
+    /* ════════════════════════════
+       MEGA PANEL (slide-down)
+    ════════════════════════════ */
+    .mega-panel {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1090;
+      background: #fff;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.14);
+      transform: translateY(-110%);
+      transition: transform 0.44s cubic-bezier(0.4,0,0.2,1);
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+    .mega-panel.open { transform: translateY(0); }
+
+    .mega-panel-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      height: var(--nav-h);
+      border-bottom: 1px solid var(--lv-light-gray);
+    }
+    .mega-panel-logo {
+      font-family: var(--font-sans); font-size: 20px;
+      font-weight: 700; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--lv-black);
+      text-decoration: none;
+    }
+    .close-btn {
+      display: flex; align-items: center; gap: 8px;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-sans); font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--lv-black); padding: 0;
+      transition: color 0.2s;
+    }
+    .close-btn i { font-size: 17px; }
+    .close-btn:hover { color: var(--lv-gold); }
+
+    /* panel nav tabs */
+    .panel-nav {
+      display: flex; list-style: none;
+      padding: 0 36px; gap: 0; margin: 0;
+      border-bottom: 1px solid var(--lv-light-gray);
+      overflow-x: auto;
+    }
+    .panel-nav::-webkit-scrollbar { height: 0; }
+    .panel-nav li > a {
+      display: block;
+      font-family: var(--font-sans); font-size: 10px;
+      font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--lv-gray);
+      text-decoration: none; padding: 16px 18px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .panel-nav li > a:hover,
+    .panel-nav li > a.active {
+      color: var(--lv-black);
+      border-color: var(--lv-black);
+    }
+
+    /* submenu content */
+    .submenu-area { display: none; padding: 36px 36px 52px; gap: 40px; flex-wrap: wrap; }
+    .submenu-area.active { display: flex; }
+
+    .sub-col { min-width: 140px; }
+    .sub-col h6 {
+      font-family: var(--font-sans); font-size: 9px;
+      font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--lv-gray);
+      margin-bottom: 14px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--lv-light-gray);
+    }
+    .sub-col a {
+      display: block; font-family: var(--font-sans);
+      font-size: 11px; letter-spacing: 0.08em;
+      color: var(--lv-black); text-decoration: none;
+      margin-bottom: 10px; transition: color 0.2s;
+    }
+    .sub-col a:hover { color: var(--lv-gold); }
+    .sub-col a.hl { color: var(--lv-gold); font-weight: 500; }
+
+    .sub-img-card { flex-shrink: 0; width: 190px; }
+    .sub-img-card img {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; display: block; margin-bottom: 10px;
+    }
+    .sub-img-card p { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* overlay */
+    .menu-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.38);
+      z-index: 1080; opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s;
+    }
+    .menu-overlay.show { opacity: 1; pointer-events: all; }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    .hero {
+      position: relative; height: 100vh;
+      min-height: 560px; overflow: hidden;
+      background: #1a1510;
+    }
+    .hero-bg {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0.88;
+      transition: transform 9s ease;
+    }
+    .hero:hover .hero-bg { transform: scale(1.04); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.52) 100%);
+    }
+    .hero-content {
+      position: absolute; bottom: 10%; left: 7%;
+      color: #fff;
+      animation: fadeUp 1s ease 0.3s both;
+    }
+    .hero-category { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.8; }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6.5vw, 88px);
+      font-weight: 300; letter-spacing: 0.05em;
+      line-height: 1.05; margin-bottom: 28px;
+    }
+    .hero-title em { font-style: italic; }
+
+    /* ════════════════════════════
+       BUTTONS
+    ════════════════════════════ */
+    .btn-lv {
+      display: inline-block; font-size: 10px; font-weight: 400;
+      letter-spacing: 0.20em; text-transform: uppercase;
+      color: #fff; border: 1px solid rgba(255,255,255,0.75);
+      padding: 13px 32px; text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .btn-lv:hover { background:#fff; color:var(--lv-black); border-color:#fff; }
+    .btn-lv-dark { color:var(--lv-black); border-color:var(--lv-black); }
+    .btn-lv-dark:hover { background:var(--lv-black); color:#fff; }
+    .btn-lv-gold { color:var(--lv-gold); border-color:var(--lv-gold); }
+    .btn-lv-gold:hover { background:var(--lv-gold); color:#fff; }
+
+    /* ════════════════════════════
+       SHARED
+    ════════════════════════════ */
+    .section-label { font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:var(--lv-gray); margin-bottom:10px; }
+    .section-title { font-family:var(--font-display); font-size:clamp(28px,4vw,54px); font-weight:300; letter-spacing:0.04em; line-height:1.1; }
+    .section-title em { font-style:italic; }
+    .gold-divider { width:40px; height:1px; background:var(--lv-gold); margin:18px auto; }
+
+    /* ════════════════════════════
+       CATEGORY GRID
+    ════════════════════════════ */
+    .category-section { padding:80px 0 60px; background:var(--lv-cream); }
+    .cat-card { position:relative; overflow:hidden; aspect-ratio:3/4; cursor:pointer; display:block; }
+    .cat-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; }
+    .cat-card:hover img { transform:scale(1.06); }
+    .cat-card-label {
+      position:absolute; bottom:0; left:0; right:0;
+      padding:14px 12px;
+      background:linear-gradient(transparent,rgba(0,0,0,0.55));
+      color:#fff; font-size:10px; letter-spacing:0.16em;
+      text-transform:uppercase; text-decoration:none;
+    }
+    .cat-card-label:hover { color:var(--lv-gold-light); }
+
+    /* ════════════════════════════
+       EDITORIAL
+    ════════════════════════════ */
+    .editorial { background:var(--lv-black); color:#fff; }
+    .editorial-img { width:100%; height:100%; min-height:580px; object-fit:cover; display:block; }
+    .editorial-content { display:flex; flex-direction:column; justify-content:center; padding:60px 64px; }
+    .editorial-content .section-label { color:rgba(255,255,255,0.45); }
+    .editorial-content .section-title { color:#fff; }
+    .editorial-content .gold-divider { margin:18px 0; }
+
+    /* ════════════════════════════
+       PRODUCTS
+    ════════════════════════════ */
+    .product-section { padding:80px 0; background:var(--lv-white); }
+    .prod-card { text-align:center; padding:0 12px; cursor:pointer; }
+    .prod-img-wrap { overflow:hidden; aspect-ratio:3/4; background:var(--lv-cream); margin-bottom:14px; }
+    .prod-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+    .prod-card:hover .prod-img-wrap img { transform:scale(1.05); }
+    .prod-name { font-family:var(--font-body); font-size:13px; letter-spacing:0.08em; color:var(--lv-black); text-decoration:none; }
+    .prod-name:hover { color:var(--lv-gold); }
+
+    /* ════════════════════════════
+       PERFUMES
+    ════════════════════════════ */
+    .perfume-section {
+      padding:80px 0; position:relative; overflow:hidden;
+      background:linear-gradient(135deg,#1a1510 0%,#2a2018 50%,#1a1510 100%);
+    }
+    .perfume-section::before {
+      content:''; position:absolute; inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b5985a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ════════════════════════════
+       SERVICES
+    ════════════════════════════ */
+    .services-section { padding:80px 0; background:var(--lv-cream); }
+    .svc-card { position:relative; overflow:hidden; height:320px; cursor:pointer; }
+    .svc-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; }
+    .svc-card:hover img { transform:scale(1.06); }
+    .svc-overlay { position:absolute; inset:0; background:linear-gradient(transparent 40%,rgba(0,0,0,0.6)); display:flex; flex-direction:column; justify-content:flex-end; padding:24px; }
+    .svc-title { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--lv-gold-light); margin-bottom:8px; }
+    .svc-link { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.38); padding-bottom:2px; display:inline-block; margin-top:4px; transition:color 0.2s,border-color 0.2s; }
+    .svc-link:hover { color:var(--lv-gold-light); border-color:var(--lv-gold-light); }
+
+    /* ════════════════════════════
+       MONOGRAM BANNER
+    ════════════════════════════ */
+    .monogram-banner { padding:80px 40px; background:var(--lv-black); text-align:center; color:#fff; position:relative; overflow:hidden; }
+    .monogram-banner::before { content:'LV'; position:absolute; font-family:var(--font-display); font-size:280px; font-weight:600; color:rgba(181,152,90,0.055); top:50%; left:50%; transform:translate(-50%,-50%); letter-spacing:0.3em; pointer-events:none; user-select:none; }
+    .monogram-banner .section-label { color:rgba(255,255,255,0.4); }
+    .monogram-banner .section-title { color:#fff; }
+    .monogram-banner p { font-family:var(--font-body); font-size:15px; color:rgba(255,255,255,0.6); max-width:520px; margin:16px auto 32px; line-height:1.8; }
+
+    /* ════════════════════════════
+       NEWSLETTER
+    ════════════════════════════ */
+    .newsletter-bar { background:var(--lv-cream); padding:48px 40px; text-align:center; border-top:1px solid var(--lv-light-gray); }
+    .newsletter-bar p { font-family:var(--font-body); font-size:14px; color:var(--lv-gray); margin:0 auto 22px; max-width:520px; line-height:1.7; }
+    .newsletter-wrap { display:flex; max-width:420px; margin:0 auto; border-bottom:1px solid var(--lv-black); }
+    .newsletter-wrap input { flex:1; border:none; background:transparent; font-size:11px; letter-spacing:0.12em; padding:10px 0; outline:none; color:var(--lv-black); }
+    .newsletter-wrap input::placeholder { color:var(--lv-gray); }
+    .newsletter-wrap button { background:none; border:none; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; color:var(--lv-black); padding:0 0 0 14px; transition:color 0.2s; }
+    .newsletter-wrap button:hover { color:var(--lv-gold); }
+
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    footer { background:var(--lv-black); color:rgba(255,255,255,0.5); padding:64px 0 32px; }
+    .footer-logo { font-family:var(--font-sans); font-size:18px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.85); text-decoration:none; display:block; margin-bottom:40px; }
+    .footer-col h6 { font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.85); margin-bottom:16px; }
+    .footer-col a { display:block; font-size:11px; letter-spacing:0.08em; color:rgba(255,255,255,0.42); text-decoration:none; margin-bottom:10px; transition:color 0.2s; }
+    .footer-col a:hover { color:var(--lv-gold); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); margin-top:48px; padding-top:24px; display:flex; align-items:center; justify-content:space-between; font-size:10px; letter-spacing:0.1em; flex-wrap:wrap; gap:12px; }
+    .footer-bottom a { color:rgba(255,255,255,0.32); text-decoration:none; transition:color 0.2s; }
+    .footer-bottom a:hover { color:var(--lv-gold); }
+    .social-links { display:flex; gap:16px; }
+    .social-links a { color:rgba(255,255,255,0.42); font-size:16px; transition:color 0.2s; }
+    .social-links a:hover { color:var(--lv-gold); }
+
+    /* ════════════════════════════
+       ANIMATIONS
+    ════════════════════════════ */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
+    @media(max-width:991px){ .editorial-content{padding:40px 28px;} .editorial-img{min-height:300px;} }
+    @media(max-width:767px){ .hero{height:75vh;} .hero-content{left:5%;bottom:8%;} .monogram-banner{padding:60px 20px;} .nav-row{padding:0 16px;} .call-us-link{display:none;} .submenu-area{flex-direction:column;gap:24px;} }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     FIXED HEADER
+══════════════════════════════ -->
+<header id="site-header">
+  <div class="top-bar">
+    Complimentary Delivery &amp; Returns on all orders &nbsp;|&nbsp;
+    <a href="#">Client Advisor: 1800 103 9988</a>
+  </div>
+  <div class="nav-row">
+    <div class="nav-left-cluster">
+      <button class="nav-btn" id="menu-toggle">
+        <i class="bi bi-list"></i> Menu
+      </button>
+      <button class="nav-btn" id="search-btn">
+        <i class="bi bi-search"></i> Search
+      </button>
+    </div>
+    <a class="logo-center" href="#">LOUIS VUITTON</a>
+    <div class="nav-right-cluster">
+      <a class="call-us-link" href="tel:18001039988">Call Us</a>
+      <button class="icon-btn" title="Wishlist"><i class="bi bi-heart"></i></button>
+      <button class="icon-btn" title="My LV"><i class="bi bi-person"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- ══════════════════════════════
+     MEGA PANEL
+══════════════════════════════ -->
+<div class="mega-panel" id="mega-panel">
+
+  <div class="mega-panel-header">
+    <a class="mega-panel-logo" href="#">LOUIS VUITTON</a>
+    <button class="close-btn" id="close-menu">
+      <i class="bi bi-x-lg"></i> Close
+    </button>
+  </div>
+
+  <ul class="panel-nav" id="panel-nav">
+    <li><a href="#" class="active" data-tab="new">New</a></li>
+    <li><a href="#" data-tab="women">Women</a></li>
+    <li><a href="#" data-tab="men">Men</a></li>
+    <li><a href="#" data-tab="bags">Bags &amp; SLG</a></li>
+    <li><a href="#" data-tab="perfumes">Perfumes</a></li>
+    <li><a href="#" data-tab="jewellery">Jewellery</a></li>
+    <li><a href="#" data-tab="watches">Watches</a></li>
+    <li><a href="#" data-tab="trunks">Trunks &amp; Travel</a></li>
+    <li><a href="#" data-tab="gifts">Gifts</a></li>
+    <li><a href="#" data-tab="maison">The Maison</a></li>
+  </ul>
+
+  <!-- NEW -->
+  <div class="submenu-area active" id="tab-new">
+    <div class="sub-col">
+      <h6>For Women</h6>
+      <a href="#" class="hl">New Arrivals</a>
+      <a href="#">Nautical</a>
+      <a href="#">Spring–Summer 2026 Collection</a>
+      <a href="#">Louis Vuitton × Murakami</a>
+      <a href="#">Cruise 2026 Collection</a>
+    </div>
+    <div class="sub-col">
+      <h6>For Men</h6>
+      <a href="#" class="hl">The Latest</a>
+      <a href="#">Spring 2026</a>
+      <a href="#">Spring–Summer 2026 Show</a>
+      <a href="#">LV Trunk Edition</a>
+      <a href="#">Pre-Collection 2026</a>
+      <a href="#">New Formal</a>
+      <a href="#">LV Fall</a>
+    </div>
+    <div class="sub-col">
+      <h6>Highlights</h6>
+      <a href="#">Monogram 130</a>
+      <a href="#">Monogram Heritage</a>
+      <a href="#">For Pets</a>
+    </div>
+    <div class="sub-img-card">
+      <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/brand-content-coremedia/women/2026/collection/nautical-denim-rdv/WOMEN_DENIM_MARCH26_02_DII.jpg" alt="Nautical" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80';this.onerror=null;"/>
+      <p>Nautical — Women</p>
+    </div>
+  </div>
+
+  <!-- WOMEN -->
+  <div class="submenu-area" id="tab-women">
+    <div class="sub-col">
+      <h6>Handbags</h6>
+      <a href="#">All Handbags</a>
+      <a href="#">New In</a>
+      <a href="#">LV Icons</a>
+      <a href="#">Monogram Signature</a>
+      <a href="#">Side Trunk</a>
+      <a href="#">Capucines</a>
+      <a href="#">Speedy</a>
+      <a href="#">Neverfull</a>
+    </div>
+    <div class="sub-col">
+      <h6>Wallets &amp; SLG</h6>
+      <a href="#">All Wallets &amp; SLG</a>
+      <a href="#">Wallets on Chain</a>
+      <a href="#">LV Essentials</a>
+      <a href="#">Compact &amp; Long Wallets</a>
+      <a href="#">Card &amp; Key Holders</a>
+      <a href="#">Newness</a>
+    </div>
+    <div class="sub-col">
+      <h6>Shoes</h6>
+      <a href="#">All Shoes</a>
+      <a href="#">Sneakers</a>
+      <a href="#">LV Sneakerina</a>
+      <a href="#">Loafers &amp; Ballerinas</a>
+      <a href="#">Boots &amp; Ankle Boots</a>
+      <a href="#">Sandals &amp; Espadrilles</a>
+      <a href="#">Pumps</a>
+    </div>
+    <div class="sub-col">
+      <h6>Accessories</h6>
+      <a href="#">Sunglasses</a>
+      <a href="#">Scarves &amp; Silk</a>
+      <a href="#">Belts</a>
+      <a href="#">Hats &amp; Gloves</a>
+      <a href="#">Key Holders &amp; Bag Charms</a>
+      <a href="#">Hair Accessories</a>
+      <a href="#">Tech Accessories</a>
+    </div>
+    <div class="sub-col">
+      <h6>Ready-to-Wear</h6>
+      <a href="#">All RTW</a>
+      <a href="#">Tops</a>
+      <a href="#">Dresses</a>
+      <a href="#">Knitwear</a>
+      <a href="#">Coats &amp; Jackets</a>
+      <a href="#">Denim</a>
+      <a href="#">Swimwear</a>
+    </div>
+    <div class="sub-col">
+      <h6>Travel</h6>
+      <a href="#">All Luggage</a>
+      <a href="#">Rolling Luggage</a>
+      <a href="#">Travel Bags</a>
+      <a href="#">Travel Accessories</a>
+      <a href="#">Perfumes</a>
+    </div>
+  </div>
+
+  <!-- MEN -->
+  <div class="submenu-area" id="tab-men">
+    <div class="sub-col">
+      <h6>Bags</h6>
+      <a href="#">All Bags</a>
+      <a href="#">LV Icons</a>
+      <a href="#">Monogram Signature</a>
+      <a href="#">Speedy P9</a>
+      <a href="#">Shopper Tote</a>
+      <a href="#">Newness</a>
+    </div>
+    <div class="sub-col">
+      <h6>Wallets &amp; SLG</h6>
+      <a href="#">All Wallets &amp; SLG</a>
+      <a href="#">Compact &amp; Long Wallets</a>
+      <a href="#">Card Holders</a>
+      <a href="#">Pouches</a>
+      <a href="#">Mini Bags</a>
+    </div>
+    <div class="sub-col">
+      <h6>Shoes</h6>
+      <a href="#">All Shoes</a>
+      <a href="#">Sneakers</a>
+      <a href="#">LV Tilted Sneaker</a>
+      <a href="#">LV Trainer</a>
+      <a href="#">Loafers</a>
+      <a href="#">Sandals</a>
+      <a href="#">Boots</a>
+    </div>
+    <div class="sub-col">
+      <h6>Accessories</h6>
+      <a href="#">All Fashion Jewellery</a>
+      <a href="#">Belts</a>
+      <a href="#">Sunglasses</a>
+      <a href="#">Scarves &amp; Silk</a>
+      <a href="#">Ties &amp; Pocket Squares</a>
+      <a href="#">Hats &amp; Beanies</a>
+      <a href="#">Key Holders</a>
+    </div>
+    <div class="sub-col">
+      <h6>Ready-to-Wear</h6>
+      <a href="#">All RTW</a>
+      <a href="#">Tailoring</a>
+      <a href="#">Blazers &amp; Jackets</a>
+      <a href="#">T-shirts &amp; Polos</a>
+      <a href="#">Knitwear</a>
+      <a href="#">Denim</a>
+      <a href="#">Shirts</a>
+      <a href="#">Pants</a>
+    </div>
+    <div class="sub-col">
+      <h6>Travel</h6>
+      <a href="#">Horizon Family</a>
+      <a href="#">All Luggage</a>
+      <a href="#">Rolling Luggage</a>
+      <a href="#">Travel Bags</a>
+      <a href="#">Travel Accessories</a>
+    </div>
+  </div>
+
+  <!-- BAGS & SLG -->
+  <div class="submenu-area" id="tab-bags">
+    <div class="sub-col">
+      <h6>Women's Handbags</h6>
+      <a href="#">All Handbags</a>
+      <a href="#">LV Icons</a>
+      <a href="#">Capucines</a>
+      <a href="#">Side Trunk</a>
+      <a href="#">Speedy</a>
+      <a href="#">Alma</a>
+      <a href="#">Neverfull</a>
+    </div>
+    <div class="sub-col">
+      <h6>Men's Bags</h6>
+      <a href="#">All Bags</a>
+      <a href="#">Speedy P9</a>
+      <a href="#">Shopper Tote</a>
+      <a href="#">Backpacks</a>
+    </div>
+    <div class="sub-col">
+      <h6>Small Leather Goods</h6>
+      <a href="#">Women's Wallets</a>
+      <a href="#">Men's Wallets</a>
+      <a href="#">Card Holders</a>
+      <a href="#">Pouches &amp; Key Holders</a>
+    </div>
+    <div class="sub-col">
+      <h6>Personalisation</h6>
+      <a href="#">Mon Monogram</a>
+      <a href="#">Bags &amp; SLG</a>
+      <a href="#">Colourful Additions</a>
+    </div>
+  </div>
+
+  <!-- PERFUMES -->
+  <div class="submenu-area" id="tab-perfumes">
+    <div class="sub-col">
+      <h6>Collections</h6>
+      <a href="#">All Perfumes</a>
+      <a href="#">Feminine Perfumes</a>
+      <a href="#">Masculine Perfumes</a>
+      <a href="#">Cologne Perfumes</a>
+      <a href="#">Oriental Perfumes</a>
+      <a href="#">Les Extraits Collection</a>
+      <a href="#">Travel</a>
+    </div>
+    <div class="sub-col">
+      <h6>Highlights</h6>
+      <a href="#">Imagination</a>
+      <a href="#">Ombre Nomade</a>
+      <a href="#">Attrape-Rêves</a>
+      <a href="#">L'Immensité</a>
+      <a href="#">Ambre Levant</a>
+    </div>
+    <div class="sub-col">
+      <h6>Stories</h6>
+      <a href="#">Flacon d'Exception</a>
+      <a href="#">A Perfume Atlas</a>
+      <a href="#">Pure Perfumes: Fine Art of Layering</a>
+    </div>
+    <div class="sub-img-card">
+      <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-ombre-nomade--LP0095_PM2_Front%20view.jpg" alt="Ombre Nomade" onerror="this.src='https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&q=80';this.onerror=null;"/>
+      <p>Ombre Nomade</p>
+    </div>
+  </div>
+
+  <!-- JEWELLERY -->
+  <div class="submenu-area" id="tab-jewellery">
+    <div class="sub-col">
+      <h6>Collections</h6>
+      <a href="#">Color Blossom</a>
+      <a href="#">Idylle Blossom</a>
+      <a href="#">Le Damier de LV</a>
+      <a href="#">Empreinte</a>
+      <a href="#">Les Gastons Vuitton</a>
+      <a href="#">LV Diamonds</a>
+      <a href="#">Silver Lockit</a>
+    </div>
+    <div class="sub-col">
+      <h6>Categories</h6>
+      <a href="#">All Fine Jewellery</a>
+      <a href="#">Necklaces &amp; Pendants</a>
+      <a href="#">Earrings</a>
+      <a href="#">Bracelets</a>
+      <a href="#">Rings</a>
+      <a href="#">Wedding Bands</a>
+      <a href="#">Brooches &amp; Cufflinks</a>
+      <a href="#">For Men</a>
+    </div>
+    <div class="sub-col">
+      <h6>High Jewellery</h6>
+      <a href="#">LV Virtuosity</a>
+      <a href="#">Awakened Hands, Awakened Minds</a>
+      <a href="#">Louis Vuitton Deep Time</a>
+    </div>
+  </div>
+
+  <!-- WATCHES -->
+  <div class="submenu-area" id="tab-watches">
+    <div class="sub-col">
+      <h6>Collections</h6>
+      <a href="#">All Watches</a>
+      <a href="#">Novelties</a>
+      <a href="#">LV Escale</a>
+      <a href="#">Tambour</a>
+      <a href="#">Tambour Convergence</a>
+      <a href="#">LV Monterey</a>
+      <a href="#">Tambour Taiko</a>
+      <a href="#">Original Tambour</a>
+      <a href="#">Watch Straps</a>
+    </div>
+    <div class="sub-col">
+      <h6>High Watchmaking</h6>
+      <a href="#">Travel Complications</a>
+      <a href="#">Automata</a>
+      <a href="#">Poinçon De Genève</a>
+      <a href="#">Minute Repeater</a>
+      <a href="#">Spin Time</a>
+      <a href="#">Pocket Watches</a>
+    </div>
+    <div class="sub-col">
+      <h6>Stories</h6>
+      <a href="#">La Fabrique du Temps</a>
+      <a href="#">LV Watch Prize</a>
+      <a href="#">LV × Voutilainen</a>
+      <a href="#">LV × Akrivia</a>
+      <a href="#">Objects of Time</a>
+    </div>
+  </div>
+
+  <!-- TRUNKS & TRAVEL -->
+  <div class="submenu-area" id="tab-trunks">
+    <div class="sub-col">
+      <h6>Trunks &amp; Boxes</h6>
+      <a href="#">Trunks &amp; Suitcases</a>
+      <a href="#">Boxes</a>
+      <a href="#">Wearable Trunks</a>
+    </div>
+    <div class="sub-col">
+      <h6>Travel</h6>
+      <a href="#">Rolling Luggage</a>
+      <a href="#">Travel Bags</a>
+      <a href="#">Travel Accessories</a>
+      <a href="#">Personalisation</a>
+    </div>
+    <div class="sub-col">
+      <h6>Home</h6>
+      <a href="#">Furniture</a>
+      <a href="#">Decoration</a>
+      <a href="#">Art of Dining</a>
+      <a href="#">Home Textile</a>
+    </div>
+    <div class="sub-col">
+      <h6>Books &amp; Stationery</h6>
+      <a href="#">Hardcover Books</a>
+      <a href="#">City Guides</a>
+      <a href="#">Travel Books</a>
+      <a href="#">Fashion Eye Books</a>
+      <a href="#">Office &amp; Writing</a>
+    </div>
+    <div class="sub-col">
+      <h6>More</h6>
+      <a href="#">Sports, Games &amp; Leisure</a>
+      <a href="#">Pets Accessories</a>
+      <a href="#">Smartphone Accessories</a>
+    </div>
+  </div>
+
+  <!-- GIFTS -->
+  <div class="submenu-area" id="tab-gifts">
+    <div class="sub-col">
+      <h6>Gift Ideas</h6>
+      <a href="#">Gifts for Her</a>
+      <a href="#">Gifts for Him</a>
+      <a href="#">Gifts for Home</a>
+      <a href="#">Gifts for Babies</a>
+      <a href="#">Gifts for Pets</a>
+      <a href="#">All Gifts</a>
+    </div>
+    <div class="sub-col">
+      <h6>Personalisation</h6>
+      <a href="#">Mon Monogram</a>
+      <a href="#">Bags &amp; Small Leather Goods</a>
+      <a href="#">Travel</a>
+      <a href="#">Perfumes</a>
+      <a href="#">Jewellery</a>
+      <a href="#">All Personalisation</a>
+    </div>
+  </div>
+
+  <!-- THE MAISON -->
+  <div class="submenu-area" id="tab-maison">
+    <div class="sub-col">
+      <h6>Magazine</h6>
+      <a href="#">Fashion Shows</a>
+      <a href="#">Arts &amp; Culture</a>
+      <a href="#">La Maison</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Latest News</a>
+    </div>
+    <div class="sub-col">
+      <h6>Services</h6>
+      <a href="#">Louis Vuitton Services</a>
+      <a href="#">Personal Advisors</a>
+      <a href="#">Repairs</a>
+      <a href="#">Art of Gifting</a>
+      <a href="#">Stores</a>
+    </div>
+    <div class="sub-col">
+      <h6>About</h6>
+      <a href="#">Ethics &amp; Compliance</a>
+      <a href="#">Careers</a>
+      <a href="#">Foundation Louis Vuitton</a>
+      <a href="#">Download our Apps</a>
+    </div>
+  </div>
+
+</div><!-- /mega-panel -->
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section class="hero">
+  <img class="hero-bg"
+    src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/brand-content-coremedia/women/2026/collection/nautical-denim-rdv/WOMEN_DENIM_MARCH26_02_DII.jpg"
+    alt="Nautical Collection"
+    onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80';this.onerror=null;"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-category">Women</p>
+    <h1 class="hero-title"><em>Nautical</em></h1>
+    <a class="btn-lv" href="#">Discover the Collection</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     CATEGORY GRID
+══════════════════════════════ -->
+<section class="category-section">
+  <div class="container-fluid px-4 px-lg-5">
+    <div class="text-center mb-5 fade-up">
+      <p class="section-label">Explore</p>
+      <h2 class="section-title">A Selection of the Maison's Creations</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Women_Handbag_2_26_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Women's Handbags</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Women_Wallet_SLG_26_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Women's Wallets &amp; SLG</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Men_Bags_26_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Men's Bags</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Men_Shoes_26_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Men's Shoes</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Women_ACC_Belt_2_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Women's Accessories</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/MSLG_3_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Men's Wallets &amp; SLG</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/PERFUMES_Ambre_Levant_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Perfumes</span></a></div>
+      <div class="col-6 col-md-3 fade-up"><a class="cat-card" href="#"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Men_Accessories_Sunglasses_26_WW_HP_category_Push_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=600&q=80';this.onerror=null;"/><span class="cat-card-label">Men's Sunglasses</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     EDITORIAL: Men Spring 2026
+══════════════════════════════ -->
+<section class="editorial">
+  <div class="row g-0">
+    <div class="col-lg-6">
+      <img class="editorial-img" src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/brand-content-coremedia/men/2026/collections/spring-2026/M_BC_Spring_Mar26_28_DII.jpg" alt="Men Spring 2026" onerror="this.src='https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80';this.onerror=null;"/>
+    </div>
+    <div class="col-lg-6 editorial-content fade-up">
+      <p class="section-label">Men</p>
+      <h2 class="section-title">Men Spring<br/><em>2026 Collection</em></h2>
+      <div class="gold-divider"></div>
+      <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:32px;max-width:400px;">A season of refined tailoring and bold monogram expressions — where heritage meets contemporary vision.</p>
+      <a class="btn-lv" href="#">Discover the Collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     PRODUCT GRID
+══════════════════════════════ -->
+<section class="product-section">
+  <div class="container-fluid px-4 px-lg-5">
+    <div class="text-center mb-5 fade-up">
+      <p class="section-label">Featured</p>
+      <h2 class="section-title">Men Spring 2026</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embroidered-signature-denim-workwear-blouson--HVA01WPNB65L_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#">Embroidered Signature Denim Blouson</a></div></div>
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-30-bandouliere--M27556_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#">Speedy 30 Bandoulière</a></div></div>
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-trainer-sneaker--BWU027MI20_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#">LV Trainer Sneaker</a></div></div>
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-louis-bear-bee-bag-charm--M03573_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#">LV Louis Bear Bee Bag Charm</a></div></div>
+    </div>
+    <div class="text-center mt-5 fade-up"><a class="btn-lv btn-lv-dark" href="#">Discover the Full Collection</a></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     PERFUMES
+══════════════════════════════ -->
+<section class="perfume-section">
+  <div class="container-fluid px-4 px-lg-5" style="position:relative;">
+    <div class="text-center mb-5 fade-up">
+      <p class="section-label" style="color:rgba(181,152,90,0.7);">Perfumes</p>
+      <h2 class="section-title" style="color:#fff;">Emblematic <em>Creations</em></h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap" style="background:#2a2018;"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-attrape-reves--LP0083_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#" style="color:rgba(255,255,255,0.85);">Attrape-Rêves</a></div></div>
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap" style="background:#2a2018;"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-ambre-levant--LP0367_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#" style="color:rgba(255,255,255,0.85);">Ambre Levant</a></div></div>
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap" style="background:#2a2018;"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-imagination--LP0219_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#" style="color:rgba(255,255,255,0.85);">Imagination</a></div></div>
+      <div class="col-6 col-md-3 fade-up"><div class="prod-card"><div class="prod-img-wrap" style="background:#2a2018;"><img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-ombre-nomade--LP0095_PM2_Front%20view.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500&q=80';this.onerror=null;"/></div><a class="prod-name" href="#" style="color:rgba(255,255,255,0.85);">Ombre Nomade</a></div></div>
+    </div>
+    <div class="text-center mt-5 fade-up"><a class="btn-lv btn-lv-gold" href="#">Discover Perfumes</a></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     EDITORIAL: Monogram Denim
+══════════════════════════════ -->
+<section class="editorial">
+  <div class="row g-0">
+    <div class="col-lg-6 order-lg-2">
+      <img class="editorial-img" src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/brand-content-coremedia/men/2026/collections/spring-2026/M_BC_Spring_Mar26_00_DII.jpg" alt="Monogram Denim" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80';this.onerror=null;"/>
+    </div>
+    <div class="col-lg-6 order-lg-1 editorial-content fade-up">
+      <p class="section-label">Men</p>
+      <h2 class="section-title">Monogram<br/><em>Denim Flower</em></h2>
+      <div class="gold-divider"></div>
+      <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:32px;max-width:400px;">The iconic Monogram canvas reimagined in premium denim — a tribute to Louis Vuitton's enduring craftsmanship.</p>
+      <a class="btn-lv" href="#">Discover the Selection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SERVICES
+══════════════════════════════ -->
+<section class="services-section">
+  <div class="container-fluid px-4 px-lg-5">
+    <div class="text-center mb-2 fade-up">
+      <p class="section-label">Care</p>
+      <h2 class="section-title">Louis Vuitton <em>Services</em></h2>
+      <div class="gold-divider"></div>
+    </div>
+    <p class="text-center fade-up" style="font-family:var(--font-body);font-size:15px;color:var(--lv-gray);max-width:560px;margin:0 auto 48px;line-height:1.8;">Louis Vuitton offers an array of tailored services — including Client Advisor support, signature gift wrapping, and exclusive personalisation options.</p>
+    <div class="row g-3">
+      <div class="col-12 col-md-4 fade-up"><div class="svc-card"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2024/central/services/LV_ContactUs_WW_HP_Services_Push_20240425_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80';this.onerror=null;"/><div class="svc-overlay"><p class="svc-title">Services</p><a class="svc-link" href="#">Contact Us</a></div></div></div>
+      <div class="col-12 col-md-4 fade-up"><div class="svc-card"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2024/central/services/LV_Gifting_WW_HP_Services_Push_20240425_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1513201099705-a9746072788e?w=700&q=80';this.onerror=null;"/><div class="svc-overlay"><p class="svc-title">Art of Gifting</p><a class="svc-link" href="#">Gifts for Women</a><a class="svc-link" href="#">Gifts for Men</a></div></div></div>
+      <div class="col-12 col-md-4 fade-up"><div class="svc-card"><img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2025/central/services/LV_Personalization_WW_HP_Services_Push_1104_DII.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=700&q=80';this.onerror=null;"/><div class="svc-overlay"><p class="svc-title">Personalisation</p><a class="svc-link" href="#">Explore</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     MONOGRAM BANNER
+══════════════════════════════ -->
+<section class="monogram-banner fade-up">
+  <p class="section-label">Heritage</p>
+  <h2 class="section-title">Monogram 130 <em>Years of Legacy</em></h2>
+  <div class="gold-divider"></div>
+  <p>Since 1896, the Louis Vuitton Monogram has stood as a symbol of artistry, travel, and timeless elegance — now celebrating 130 extraordinary years.</p>
+  <a class="btn-lv" href="#">Explore Monogram 130</a>
+</section>
+
+<!-- ══════════════════════════════
+     NEWSLETTER
+══════════════════════════════ -->
+<div class="newsletter-bar">
+  <p>Sign up for Louis Vuitton emails and receive the latest news from the Maison, including exclusive online pre-launches and new collections.</p>
+  <div class="newsletter-wrap">
+    <input type="email" placeholder="Enter your email address"/>
+    <button type="button">Subscribe</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="container-fluid px-4 px-lg-5">
+    <a class="footer-logo" href="#">LOUIS VUITTON</a>
+    <div class="row g-4">
+      <div class="col-6 col-md-3 footer-col">
+        <h6>Help</h6>
+        <a href="#">FAQ</a><a href="#">Product Care</a><a href="#">Stores</a><a href="#">1800 103 9988</a><a href="#">Chat with Us</a>
+      </div>
+      <div class="col-6 col-md-3 footer-col">
+        <h6>Services</h6>
+        <a href="#">Repairs</a><a href="#">Personalisation</a><a href="#">Art of Gifting</a><a href="#">Download our Apps</a>
+      </div>
+      <div class="col-6 col-md-3 footer-col">
+        <h6>About Louis Vuitton</h6>
+        <a href="#">Fashion Shows</a><a href="#">Arts &amp; Culture</a><a href="#">La Maison</a><a href="#">Sustainability</a><a href="#">Latest News</a><a href="#">Careers</a><a href="#">Foundation Louis Vuitton</a>
+      </div>
+      <div class="col-6 col-md-3 footer-col">
+        <h6>Follow Us</h6>
+        <div class="social-links mb-3">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-pinterest"></i></a>
+        </div>
+        <h6 class="mt-3">Country</h6>
+        <a href="#">🇮🇳 India</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="color:rgba(255,255,255,0.22);font-size:10px;letter-spacing:0.1em;">© 2025 Louis Vuitton Malletier. All rights reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="#">Legal &amp; Privacy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* 1 — Scroll: transparent → white */
+  const header = document.getElementById('site-header');
+  function handleScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  /* 2 — Mega panel open / close */
+  const menuToggle = document.getElementById('menu-toggle');
+  const closeBtn   = document.getElementById('close-menu');
+  const megaPanel  = document.getElementById('mega-panel');
+  const overlay    = document.getElementById('menu-overlay');
+
+  function openMenu() {
+    megaPanel.classList.add('open');
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    megaPanel.classList.remove('open');
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', () =>
+    megaPanel.classList.contains('open') ? closeMenu() : openMenu()
+  );
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  /* 3 — Tab switching inside panel */
+  document.querySelectorAll('#panel-nav a[data-tab]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const tab = link.dataset.tab;
+      document.querySelectorAll('#panel-nav a').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      document.querySelectorAll('.submenu-area').forEach(a => {
+        a.classList.toggle('active', a.id === 'tab-' + tab);
+      });
+    });
+  });
+
+  /* 4 — Scroll fade-up */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 55);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

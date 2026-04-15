@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="Enter a message to add" id="message">
+        <button onclick="addTask()">Add</button>
+    </div>
+    <div id="result">
+        <script>
+            showTask()
+            function loadTask(){
+                const todolist=localStorage.getItem('todolist')
+                return todolist? JSON.parse(todolist):[]
+            }
+            function addTask(){
+                let messageField=document.getElementById('message')
+                let existingTask=loadTask()
+                console.log(existingTask)
+                existingTask.push(messageField.value)
+                localStorage.setItem('todolist',JSON.stringify(existingTask))
+                messageField.value=''
+                showTask()
+            }
+            function showTask(){
+                let result=document.getElementById('result')
+                result.innerHTML=''
+                let existingTasks=loadTask()
+                existingTasks.map((i,index)=>{
+                result.innerHTML+=`
+                    <div>
+                        <p>
+                            ${i}
+                            <button onclick='deleteTask(${index})'>Delete</button>
+                        </p>
+                    </div>
+                    `
+                })
+            }
+            function deleteTask(id){
+                let existingTask=loadTask()
+                existingTask.splice(id,1)
+                localStorage.setItem('todolist',JSON.stringify(existingTask))
+                showTask()
+
+            }
+        </script>
+    </div>
+</body>
+</html>

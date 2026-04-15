@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .navbar {
+            background-color: whitesmoke;
+        }
+
+        .nav-links {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://imgs.search.brave.com/HwC9NgF0FaeZvZMCjLEDMeM0E5oWYJ3N8iIUyL6I_gE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMTMvR29v/Z2xlLUxvZ28tUE5H/LUltYWdlLnBuZw"
+                    width="50px" height="50px" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./register.html">Register</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul> 
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><i>Google Drive</i></h5>
+                        <p class="card-text">A cloud storage platform to save, access, and share files securely from
+                            anywhere.
+                            It supports real-time collaboration on documents, spreadsheets, presentations.</p>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary btn-lg">Open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRK87NmyYkOaLyQeW_0QsfdSnWSZYvPeqhBw&s"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><i>Google Mail</i></h5>
+                        <p class="card-text">A widely used email service that offers secure, fast, and organized
+                            communication.
+                            It includes smart features like spam filtering, labels, and powerful search.</p>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary btn-lg">Open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.seeklogo.com/logo-png/40/1/google-meet-logo-png_seeklogo-406884.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><i>Google Meet</i></h5>
+                        <p class="card-text">A video communication tool designed for online meetings, classes, and team
+                            collaboration.
+                            It offers features like screen sharing, live captions, and secure meeting links.</p>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary btn-lg">Open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsiS19NtOeAIHd8Lnrl3jCad-Pwo48HZncPw&s"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><i>Google News</i></h5>
+                        <p class="card-text">A personalized news platform that gathers headlines from various trusted
+                            sources worldwide.
+                            It helps users stay updated with current events based on their interests.</p>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary btn-lg">Open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container w-75 my-5">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.pinimg.com/736x/98/11/d4/9811d40f64fc9133e87fd3d10f1081d8.jpg"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/1200x/51/27/2d/51272d2dafa1d586db08ec5f186ffb7e.jpg"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/f1/9b/d0/f19bd05de04bd0c80c219c1bb8630959.jpg"
+                        class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

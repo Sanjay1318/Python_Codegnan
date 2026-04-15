@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <style>
+        #show-patients{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap:20px
+        }
+        .card{
+            box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+            padding: 3%;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show-patients"></div>
+
+    <script>
+        // make a request to the server and get the response
+        fetch("https://doc-back.onrender.com/patients")
+            // get response from API
+            .then((res) => {
+                console.log(res);
+                return res.json(); // convert response to JSON, converting the response into object and returning
+            })
+            .then((res) => {
+                console.log(res);
+                display(res); // send data to display function, send the converted object to display
+            })
+        // .catch((err) => {
+        //     console.error("Error fetching data:", err);
+        // });
+
+        function display(patientsList) {
+            let showPatients = document.getElementById("show-patients");
+            patientsList.map((i) => {
+                // template literals
+                showPatients.innerHTML += `
+                <div class="card">
+                    <p>Name: ${i.name}</p>
+                    <p>Age: ${i.age}</p>
+                    <p>Gender: ${i.gender}</p>
+                    <p>Weight: ${i.weight}</p>
+                    <p>Disease: ${i.disease}</p>
+                    <p>Mail: ${i.email}</p>
+                    <p>Password: ${i.password}</p>
+                    <p>Doctor: ${i.doctor.name}</p>
+                    <p>Specialization: ${i.doctor.specialization}</p>
+                    <br>
+                </div>
+                `
+            })
+        }
+    </script>
+</body>
+
+</html>

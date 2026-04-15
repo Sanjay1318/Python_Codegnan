@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOUIS VUITTON Official India Website</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 60px;
+      transition: background .3s, border-color .3s;
+    }
+
+    header.on-hero {
+      background: transparent;
+      border-bottom: 1px solid transparent;
+    }
+
+    header.off-hero {
+      background: #fff;
+      border-bottom: 1px solid #e0ddd9;
+    }
+
+    header.on-hero .hbtn,
+    header.on-hero .hlink,
+    header.on-hero .logo {
+      color: #fff;
+    }
+
+    header.off-hero .hbtn,
+    header.off-hero .hlink,
+    header.off-hero .logo {
+      color: #1a1a1a;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .hbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-family: 'Arial', sans-serif;
+      transition: opacity .2s;
+    }
+
+    .hbtn:hover {
+      opacity: .7;
+    }
+
+    .hbtn svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .hlink {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      transition: opacity .2s;
+    }
+
+    .hlink:hover {
+      opacity: .7;
+    }
+
+    .hlink svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      letter-spacing: 7px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      white-space: nowrap;
+      transition: color .3s;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    /* ─── SIDE DRAWER ─── */
+    .drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 200;
+    }
+
+    .drawer-overlay.open {
+      display: block;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 360px;
+      max-width: 100vw;
+      height: 100vh;
+      background: #fff;
+      z-index: 201;
+      transform: translateX(-100%);
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+      overflow-y: auto;
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .drawer-head span {
+      font-size: 10px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      font-weight: 600;
+    }
+
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .dnav {
+      list-style: none;
+    }
+
+    .dnav>li>a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #1a1a1a;
+      border-bottom: 1px solid #f0eeeb;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .dnav>li>a:hover {
+      background: #faf9f7;
+    }
+
+    .dnav>li>a .arrow {
+      font-size: 16px;
+      color: #bbb;
+      transition: transform .2s;
+    }
+
+    .dnav>li.open>a .arrow {
+      transform: rotate(90deg);
+    }
+
+    .dsub {
+      display: none;
+      background: #faf9f7;
+    }
+
+    .dsub a {
+      display: block;
+      padding: 10px 36px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      color: #666;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .dsub a:hover {
+      color: #1a1a1a;
+    }
+
+    .dnav>li.open .dsub {
+      display: block;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .9s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-content {
+      position: absolute;
+      bottom: 56px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .slide-content .eye {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 9px;
+      opacity: .9;
+    }
+
+    .slide-content h1 {
+      font-size: clamp(24px, 3.2vw, 46px);
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 13px;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .35);
+    }
+
+    .slide-content a {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .slide-content a:hover {
+      opacity: .7;
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .hdot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .45);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background .3s;
+    }
+
+    .hdot.active {
+      background: #fff;
+    }
+
+    /* ─── SECTION HEADING ─── */
+    .sec-title {
+      font-size: clamp(20px, 2.8vw, 32px);
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: .5px;
+      line-height: 1.35;
+    }
+
+    /* ─── CATEGORY GRID ─── */
+    .cat-item {
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .cat-item img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform .55s cubic-bezier(.25, .46, .45, .94);
+    }
+
+    .cat-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .cat-item p {
+      font-size: 12px;
+      letter-spacing: .8px;
+      text-align: center;
+      margin-top: 12px;
+      font-family: 'Arial', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+
+    /* ─── FULL EDITORIAL ─── */
+    .ed {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .ed img {
+      width: 100%;
+      display: block;
+      transition: transform .7s ease;
+    }
+
+    .ed:hover img {
+      transform: scale(1.03);
+    }
+
+    .ed-txt {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px 52px;
+    }
+
+    .ed-txt .eye {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 9px;
+      opacity: .9;
+    }
+
+    .ed-txt h2 {
+      font-size: clamp(20px, 3.2vw, 44px);
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, .4);
+    }
+
+    .ed-txt a {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .ed-txt a:hover {
+      opacity: .7;
+    }
+
+    /* ─── SPLIT 50/50 ─── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .shalf {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shalf img {
+      width: 100%;
+      height: 75vh;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+
+    .shalf:hover img {
+      transform: scale(1.04);
+    }
+
+    .shalf-txt {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    .shalf-txt .eye {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 7px;
+    }
+
+    .shalf-txt h3 {
+      font-size: clamp(17px, 2vw, 28px);
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+      margin-bottom: 13px;
+    }
+
+    .shalf-txt a {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ─── PRODUCT SCROLL ─── */
+    .pscroll {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .pscroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ptrack {
+      display: flex;
+      gap: 2px;
+    }
+
+    .pcard {
+      width: 270px;
+      flex-shrink: 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .pcard img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s;
+    }
+
+    .pcard:hover img {
+      transform: scale(1.05);
+    }
+
+    .pcard .pinfo {
+      padding: 11px 2px 4px;
+    }
+
+    .pcard .pinfo .pcat {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .pcard .pinfo h5 {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: .5px;
+      margin: 0 0 4px;
+    }
+
+    .pcard .pinfo .pprice {
+      font-size: 12px;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+    }
+
+    /* ─── SERVICES ─── */
+    .svc {
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .svc-item {
+      padding: 30px 16px;
+      text-align: center;
+    }
+
+    .svc-item svg {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 11px;
+    }
+
+    .svc-item h6 {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .svc-item p {
+      font-size: 11px;
+      color: #888;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 52px 0 26px;
+    }
+
+    .flogo {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin-bottom: 44px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer h6 {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b8924a;
+      margin-bottom: 13px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    footer a.flink {
+      display: block;
+      font-size: 11px;
+      letter-spacing: .8px;
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    footer a.flink:hover {
+      color: #fff;
+    }
+
+    .fhr {
+      border-color: #2e2e2e;
+      margin: 38px 0 20px;
+    }
+
+    .fbottom {
+      font-size: 10px;
+      color: #555;
+      letter-spacing: .7px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .social a {
+      display: inline-flex;
+      width: 33px;
+      height: 33px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-right: 7px;
+      color: #888;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .social a:hover {
+      border-color: #b8924a;
+      color: #b8924a;
+    }
+
+    .social svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .nl-in {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #444;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 7px 0;
+      width: 100%;
+      outline: none;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .nl-in::placeholder {
+      color: #555;
+    }
+
+    .nl-btn {
+      background: #b8924a;
+      border: none;
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 8px 18px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: 'Arial', sans-serif;
+    }
+
+    @media(max-width:768px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .shalf img {
+        height: 55vw;
+      }
+
+      .slide-content {
+        white-space: normal;
+        width: 88%;
+      }
+
+      .drawer {
+        width: 100%;
+      }
+
+      header {
+        padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 16px;
+        letter-spacing: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════ DRAWER OVERLAY ══════ -->
+  <div class="drawer-overlay" id="doverlay" onclick="closeDrawer()"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-head">
+      <span>Menu</span>
+      <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
+    </div>
+    <ul class="dnav">
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Monogram 130 <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">The Collections</a><a href="#">Speedy</a><a href="#">Alma</a>
+          <a href="#">Neverfull</a><a href="#">Noé</a><a href="#">Keepall</a><a href="#">Small Leather Goods</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Gifts <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">Gifts for Her</a><a href="#">Gifts for Him</a><a href="#">Gifts for Home</a>
+          <a href="#">Gifts for Babies</a><a href="#">Gifts for Pets</a><a href="#">All Gifts</a><a
+            href="#">Personalisation</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">New <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">New Arrivals – Women</a><a href="#">LV Sneakerina</a><a href="#">Nautical</a>
+          <a href="#">Spring-Summer 2026</a><a href="#">LV × Murakami</a>
+          <a href="#">New Arrivals – Men</a><a href="#">Spring 2026</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Women <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">Handbags</a><a href="#">Wallets &amp; SLG</a><a href="#">Fashion Jewellery</a>
+          <a href="#">Shoes</a><a href="#">Accessories</a><a href="#">Ready-to-Wear</a><a href="#">Travel</a><a
+            href="#">Perfumes</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Men <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">Bags</a><a href="#">Wallets &amp; SLG</a><a href="#">Fashion Jewellery</a>
+          <a href="#">Shoes</a><a href="#">Accessories</a><a href="#">Ready-to-Wear</a><a href="#">Travel</a><a
+            href="#">Perfumes</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Perfumes <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">All Perfumes</a><a href="#">Feminine Perfumes</a><a href="#">Masculine Perfumes</a>
+          <a href="#">Ombre Nomade</a><a href="#">L'Immensité</a><a href="#">Imagination</a><a
+            href="#">Attrape-Rêves</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Jewellery <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">Color Blossom</a><a href="#">Idylle Blossom</a><a href="#">Empreinte</a>
+          <a href="#">LV Diamonds</a><a href="#">All Fine Jewellery</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Watches <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">Tambour</a><a href="#">LV Escale</a><a href="#">LV Monterey</a>
+          <a href="#">Tambour Convergence</a><a href="#">All Watches</a>
+        </div>
+      </li>
+      <li onclick="toggleSub(this)">
+        <a href="#" onclick="return false">Trunks &amp; Home <span class="arrow">›</span></a>
+        <div class="dsub">
+          <a href="#">Trunks &amp; Suitcases</a><a href="#">Rolling Luggage</a><a href="#">Furniture</a>
+          <a href="#">Books &amp; Stationery</a><a href="#">Sports &amp; Games</a><a href="#">Pets Accessories</a>
+        </div>
+      </li>
+      <li><a href="#">The Maison Louis Vuitton</a></li>
+      <li><a href="#">Louis Vuitton Services</a></li>
+    </ul>
+  </div>
+
+  <!-- ══════ HEADER ══════ -->
+  <header id="hdr" class="on-hero">
+    <div class="nav-left">
+      <button class="hbtn" onclick="openDrawer()">
+        <svg viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.4">
+          <line x1="0" y1="1" x2="20" y2="1" />
+          <line x1="0" y1="7" x2="20" y2="7" />
+          <line x1="0" y1="13" x2="20" y2="13" />
+        </svg>
+        Menu
+      </button>
+      <a href="#" class="hlink">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="8.5" cy="8.5" r="6.5" />
+          <line x1="13.5" y1="13.5" x2="19" y2="19" />
+        </svg>
+        Search
+      </a>
+    </div>
+
+    <a href="#" class="logo">LOUIS VUITTON</a>
+
+    <div class="nav-right">
+      <a href="#" class="hlink">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M3 5a2 2 0 012-2h1.5l1 3-1.5 1.5a11 11 0 005.5 5.5L13 11.5l3 1V14a2 2 0 01-2 2C7.5 16 4 10 4 7" />
+        </svg>
+        Call Us
+      </a>
+      <a href="#" class="hlink">
+        <svg viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M10 16S2 10.5 2 5.5A4.5 4.5 0 0110 3.6 4.5 4.5 0 0118 5.5C18 10.5 10 16 10 16z" />
+        </svg>
+      </a>
+      <a href="#" class="hlink">
+        <svg viewBox="0 0 20 22" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="10" cy="6" r="4" />
+          <path d="M2 20c0-4 3.6-7 8-7s8 3 8 7" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════ HERO SLIDER ══════ -->
+  <section class="hero" id="hero">
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&q=90&auto=format&fit=crop" alt="">
+      <div class="slide-content">
+        <p class="eye">Women</p>
+        <h1>Early Access: LV Sneakerina</h1>
+        <a href="#">Discover the New Editions</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=90&auto=format&fit=crop" alt="">
+      <div class="slide-content">
+        <p class="eye">Women</p>
+        <h1>Spring-Summer 2026 Collection</h1>
+        <a href="#">Discover the Collection</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1920&q=90&auto=format&fit=crop" alt="">
+      <div class="slide-content">
+        <p class="eye">Men</p>
+        <h1>Spring 2026</h1>
+        <a href="#">Explore the Collection</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1920&q=90&auto=format&fit=crop" alt="">
+      <div class="slide-content">
+        <p class="eye">Collaboration</p>
+        <h1>Louis Vuitton × Murakami</h1>
+        <a href="#">Explore Now</a>
+      </div>
+    </div>
+    <div class="hero-dots">
+      <button class="hdot active" onclick="goSlide(0)"></button>
+      <button class="hdot" onclick="goSlide(1)"></button>
+      <button class="hdot" onclick="goSlide(2)"></button>
+      <button class="hdot" onclick="goSlide(3)"></button>
+    </div>
+  </section>
+
+  <!-- ══════ EXPLORE MAISON CREATIONS ══════ -->
+  <section style="padding:60px 40px 24px;">
+    <h2 class="sec-title mb-5">Explore a Selection of the Maison's Creations</h2>
+    <div class="row g-2">
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=85&auto=format&fit=crop"
+            alt="Women's Handbags">
+          <p>Women's Handbags</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=85&auto=format&fit=crop"
+            alt="Women's Wallets">
+          <p>Women's Wallets and Small Leather Goods</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1603217038695-6b1a8e8f31d7?w=600&q=85&auto=format&fit=crop"
+            alt="Women's Accessories">
+          <p>Women's Accessories</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=600&q=85&auto=format&fit=crop"
+            alt="Perfumes">
+          <p>Perfumes</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=85&auto=format&fit=crop"
+            alt="Men's Bags">
+          <p>Men's Bags</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1624395213043-fa2e123b2656?w=600&q=85&auto=format&fit=crop"
+            alt="Men's Wallets">
+          <p>Men's Wallets and Small Leather Goods</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=85&auto=format&fit=crop"
+            alt="Shoes">
+          <p>Shoes</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="cat-item">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=85&auto=format&fit=crop"
+            alt="Ready-to-Wear">
+          <p>Ready-to-Wear</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ EDITORIAL: LV SNEAKERINA ══════ -->
+  <section style="padding:40px 40px 0;">
+    <div class="ed" style="height:85vh;">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1800&q=90&auto=format&fit=crop"
+        style="height:100%;object-fit:cover;" alt="">
+      <div class="ed-txt">
+        <p class="eye">Women · Shoes</p>
+        <h2>The LV Sneakerina</h2>
+        <a href="#">Discover the Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SPLIT: SS2026 WOMEN / MEN ══════ -->
+  <section style="padding:40px 40px 0;">
+    <div class="split">
+      <div class="shalf">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=85&auto=format&fit=crop" alt="">
+        <div class="shalf-txt">
+          <p class="eye">Women</p>
+          <h3>Spring-Summer 2026 Collection</h3>
+          <a href="#">See the Collection</a>
+        </div>
+      </div>
+      <div class="shalf">
+        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=900&q=85&auto=format&fit=crop" alt="">
+        <div class="shalf-txt">
+          <p class="eye">Men</p>
+          <h3>Spring 2026</h3>
+          <a href="#">Discover</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ EDITORIAL: MONOGRAM 130 ══════ -->
+  <section style="padding:40px 40px 0;">
+    <div class="ed" style="height:85vh;">
+      <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1800&q=90&auto=format&fit=crop"
+        style="height:100%;object-fit:cover;" alt="">
+      <div class="ed-txt">
+        <p class="eye">Anniversary</p>
+        <h2>Monogram 130</h2>
+        <a href="#">Explore the Heritage</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ NEW ARRIVALS SCROLL ══════ -->
+  <section style="padding:56px 40px 0;">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p
+          style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#aaa;font-family:'Arial',sans-serif;margin-bottom:5px;">
+          Just In</p>
+        <h2 style="font-size:clamp(20px,2.5vw,30px);font-weight:400;letter-spacing:.5px;">New Arrivals</h2>
+      </div>
+      <a href="#"
+        style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Arial',sans-serif;color:#1a1a1a;text-decoration:underline;text-underline-offset:4px;">View
+        All</a>
+    </div>
+    <div class="pscroll">
+      <div class="ptrack">
+        <div class="pcard"><img
+            src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80&auto=format&fit=crop" alt="">
+          <div class="pinfo">
+            <p class="pcat">Women · Handbags</p>
+            <h5>Speedy Bandoulière 20</h5>
+            <p class="pprice">₹ 1,64,000</p>
+          </div>
+        </div>
+        <div class="pcard"><img
+            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80&auto=format&fit=crop" alt="">
+          <div class="pinfo">
+            <p class="pcat">Women · Handbags</p>
+            <h5>Neverfull MM</h5>
+            <p class="pprice">₹ 1,38,000</p>
+          </div>
+        </div>
+        <div class="pcard"><img
+            src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&q=80&auto=format&fit=crop" alt="">
+          <div class="pinfo">
+            <p class="pcat">Women · Shoes</p>
+            <h5>LV Sneakerina</h5>
+            <p class="pprice">₹ 82,000</p>
+          </div>
+        </div>
+        <div class="pcard"><img
+            src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=500&q=80&auto=format&fit=crop" alt="">
+          <div class="pinfo">
+            <p class="pcat">Travel</p>
+            <h5>Keepall Bandoulière 45</h5>
+            <p class="pprice">₹ 1,92,000</p>
+          </div>
+        </div>
+        <div class="pcard"><img
+            src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500&q=80&auto=format&fit=crop" alt="">
+          <div class="pinfo">
+            <p class="pcat">Men · Bags</p>
+            <h5>Shopper Tote Taïga</h5>
+            <p class="pprice">₹ 1,52,000</p>
+          </div>
+        </div>
+        <div class="pcard"><img
+            src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=500&q=80&auto=format&fit=crop" alt="">
+          <div class="pinfo">
+            <p class="pcat">Women · SLG</p>
+            <h5>Félicie Pochette</h5>
+            <p class="pprice">₹ 1,08,000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ EDITORIAL: LV × MURAKAMI ══════ -->
+  <section style="padding:56px 40px 0;">
+    <div class="ed" style="height:85vh;">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1800&q=90&auto=format&fit=crop"
+        style="height:100%;object-fit:cover;" alt="">
+      <div class="ed-txt">
+        <p class="eye">Collaboration</p>
+        <h2>Louis Vuitton × Murakami</h2>
+        <a href="#">Discover the Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SPLIT: HANDBAGS / SLG ══════ -->
+  <section style="padding:40px 40px 0;">
+    <div class="split">
+      <div class="shalf">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=85&auto=format&fit=crop" alt="">
+        <div class="shalf-txt">
+          <p class="eye">Women</p>
+          <h3>Handbags</h3>
+          <a href="#">Shop Now</a>
+        </div>
+      </div>
+      <div class="shalf">
+        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=900&q=85&auto=format&fit=crop" alt="">
+        <div class="shalf-txt">
+          <p class="eye">Women</p>
+          <h3>Small Leather Goods</h3>
+          <a href="#">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ EDITORIAL: PERFUMES ══════ -->
+  <section style="padding:40px 40px 0;">
+    <div class="ed" style="height:80vh;">
+      <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=1800&q=90&auto=format&fit=crop"
+        style="height:100%;object-fit:cover;" alt="">
+      <div class="ed-txt">
+        <p class="eye">Les Parfums Louis Vuitton</p>
+        <h2>The World of Perfumes</h2>
+        <a href="#">Discover All Perfumes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ EDITORIAL: GIFTING ══════ -->
+  <section style="padding:40px 40px 0;">
+    <div class="ed" style="height:70vh;">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1800&q=90&auto=format&fit=crop"
+        style="height:100%;object-fit:cover;" alt="">
+      <div class="ed-txt">
+        <p class="eye">The Art of Gifting</p>
+        <h2>Gifts for Every Occasion</h2>
+        <a href="#">Explore Gifting</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SERVICES BAR ══════ -->
+  <section class="svc mt-5">
+    <div class="row g-0">
+      <div class="col-6 col-md-3 svc-item" style="border-right:1px solid #e5e5e5;">
+        <svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+          <rect x="1" y="3" width="15" height="13" rx="1" />
+          <path d="M16 8h4l3 5v4h-7V8z" />
+          <circle cx="5.5" cy="18.5" r="2.5" />
+          <circle cx="18.5" cy="18.5" r="2.5" />
+        </svg>
+        <h6>Complimentary Delivery</h6>
+        <p>On all orders across India</p>
+      </div>
+      <div class="col-6 col-md-3 svc-item" style="border-right:1px solid #e5e5e5;">
+        <svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+          <path d="M20 7H4a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" />
+          <path d="M16 3H8v4h8V3z" />
+        </svg>
+        <h6>Exclusive Packaging</h6>
+        <p>Iconic Louis Vuitton gift boxes</p>
+      </div>
+      <div class="col-6 col-md-3 svc-item" style="border-right:1px solid #e5e5e5;">
+        <svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+          <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+          <path d="M8 12l2 2 4-4" />
+        </svg>
+        <h6>Personalisation</h6>
+        <p>Mon Monogram &amp; hot stamping</p>
+      </div>
+      <div class="col-6 col-md-3 svc-item">
+        <svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+        </svg>
+        <h6>Client Services</h6>
+        <p>Chat, call or visit a store</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer>
+    <div class="container-fluid px-4 px-md-5">
+      <a href="#" class="flogo">Louis Vuitton</a>
+      <div class="row g-4">
+        <div class="col-6 col-md-2">
+          <h6>Help</h6>
+          <a href="#" class="flink">FAQ</a>
+          <a href="#" class="flink">Shipping &amp; Returns</a>
+          <a href="#" class="flink">Track Your Order</a>
+          <a href="#" class="flink">Size Guide</a>
+          <a href="#" class="flink">Contact Us</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <h6>Services</h6>
+          <a href="#" class="flink">Personalisation</a>
+          <a href="#" class="flink">Gift Cards</a>
+          <a href="#" class="flink">Repair &amp; Care</a>
+          <a href="#" class="flink">Find a Store</a>
+          <a href="#" class="flink">Virtual Appointment</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <h6>Louis Vuitton</h6>
+          <a href="#" class="flink">About the House</a>
+          <a href="#" class="flink">Savoir Faire</a>
+          <a href="#" class="flink">City Guides</a>
+          <a href="#" class="flink">Sustainability</a>
+          <a href="#" class="flink">Careers</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <h6>Legal</h6>
+          <a href="#" class="flink">Privacy Policy</a>
+          <a href="#" class="flink">Cookie Policy</a>
+          <a href="#" class="flink">Terms of Use</a>
+          <a href="#" class="flink">Accessibility</a>
+          <a href="#" class="flink">Sitemap</a>
+        </div>
+        <div class="col-md-4">
+          <h6>Follow Louis Vuitton</h6>
+          <div class="social mb-4">
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg></a>
+          </div>
+          <h6 style="margin-bottom:10px;">Newsletter</h6>
+          <div class="d-flex gap-2 mt-1">
+            <input type="email" placeholder="Your email address" class="nl-in">
+            <button class="nl-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="fhr">
+      <div class="d-flex flex-wrap justify-content-between fbottom">
+        <span>© 2026 Louis Vuitton Malletier. All Rights Reserved.</span>
+        <div class="d-flex gap-3 mt-2 mt-md-0">
+          <a href="#" style="font-size:10px;color:#555;text-decoration:none;font-family:'Arial',sans-serif;">India</a>
+          <span style="color:#444;">|</span>
+          <a href="#" style="font-size:10px;color:#555;text-decoration:none;font-family:'Arial',sans-serif;">English</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Drawer
+    function openDrawer() {
+      document.getElementById('drawer').classList.add('open');
+      document.getElementById('doverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      document.getElementById('doverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function toggleSub(li) {
+      li.classList.toggle('open');
+    }
+
+    // Hero slider
+    let cur = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.hdot');
+    function goSlide(n) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = n;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    setInterval(() => goSlide((cur + 1) % slides.length), 5500);
+
+    // Header transparent/solid based on hero
+    const hdr = document.getElementById('hdr');
+    const heroH = document.getElementById('hero');
+    function updateHeader() {
+      const heroBottom = heroH.getBoundingClientRect().bottom;
+      if (heroBottom <= 60) {
+        hdr.classList.remove('on-hero');
+        hdr.classList.add('off-hero');
+      } else {
+        hdr.classList.remove('off-hero');
+        hdr.classList.add('on-hero');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  </script>
+</body>
+
+</html>

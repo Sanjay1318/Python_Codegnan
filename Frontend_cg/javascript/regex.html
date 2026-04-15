@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regex</title>
+</head>
+
+<body>
+    <form onsubmit="return validate()" action="https://www.google.com">
+        <input 
+            type="text" 
+            placeholder="Enter name" 
+            name="name" 
+            id="name" />
+        <br> <br>
+        <input 
+            type="text" 
+            placeholder="Enter email" 
+            name="email" 
+            id="email" />
+        <br><br>
+        <div>
+            <input 
+                type="text" 
+                placeholder="Enter password" 
+                name="password" 
+                id="password" />
+            <p id="password-error"></p>
+        </div>
+        <button>Submit</button>
+    </form>
+    <script>
+        function validate() {
+            var name = document.getElementById("name").value
+            var namecheck = /^[a-zA-Z][a-zA-Z ]+$/
+            var email = document.getElementById("email").value
+            var emailcheck = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$/ // /^[a-zA-Z0-9._]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$/
+                          // /^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$/
+            var password = document.getElementById("password").value
+            var passwordcheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W]).{8,}$/
+            if (name == "") {
+                alert("Name field cannot be empty")
+                return false
+            }
+            if (!name.match(namecheck)) {
+                alert("Name can contain alphabets and spaces only")
+                return false
+            }
+            if (email==""){
+                alert("Enter Email")
+                return false
+            }
+            if(!email.match(emailcheck)){
+                alert("Enter valid Email")
+                return false
+            }
+            if(password==""){
+                alert("Password cannot be empty")
+                return false
+            }
+            if(!password.match(passwordcheck)){
+                document.getElementById("password-error").innerHTML = "Password must contain uppercase, lowercase, number, special character and minimum 8 characters";
+                document.getElementById("password-error").style.color = "red";
+                return false;
+            }
+            return true
+        }
+    </script>
+</body>
+
+</html>

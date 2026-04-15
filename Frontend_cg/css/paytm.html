@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paytm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0%;
+            font-family: sans-serif;
+            background-color: whitesmoke;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        .drop-downs {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .drop-downs select {
+            border: none;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            width: 21%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #002970;
+        }
+
+        .sign-in {
+            background-color: #002970;
+            color: white !important;
+            border-radius: 25px;
+            padding: 5px 10px;
+        }
+
+        .bank-account-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f6f8fc;
+            margin: 2% 5%;
+            padding-left: 7%;
+            border-radius: 20px;
+        }
+
+        .bank {
+            width: 38%;
+        }
+
+        .bank img {
+            width: 27%;
+        }
+
+        .bank h1 {
+            font-size: 2.5rem;
+        }
+
+        .bank-image {
+            width: 45%;
+        }
+
+        .credit-super-container{
+            display: flex;
+            gap: 30px;
+            margin: 2% 5%;
+        }
+
+        .credit{
+            background-image: url("https://assetscdn1.paytm.com/images/catalog/view_item/1725638720587.png");
+            background-size: cover;
+            padding: 4%;
+            width: 45%;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .credit img{
+            width: 25%;
+        }
+
+        .credit h1{
+            font-size: 2.5rem;
+        }
+
+        .apply a{
+            border: 1px solid #002970;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: #002970;
+            margin-right: 20px;
+        }
+
+        .apply a:hover{
+            background-color: #002970;
+            color: white;
+        }
+
+        .apply img{
+            width: 50% !important;
+            vertical-align: middle;
+        }
+
+        .credit-image{
+            width: 100% !important;
+        }
+
+        .super{
+            background-image: none;
+            background: linear-gradient(#D3F5FF, #FFFFFF);
+        }
+        .bank p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .bank-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .bank-links img {
+            width: 150px;
+        }
+
+        .bank-image img {
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="">
+            <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/logo_new.svg" alt="" />
+        </a>
+        <div class="drop-downs">
+            <select>
+                <option value="">Recharge & Bills</option>
+            </select>
+            <select>
+                <option value="">Ticket Booking</option>
+            </select>
+            <select>
+                <option value="">Payments & Services</option>
+            </select>
+            <select>
+                <option value="">Paytm for Business</option>
+            </select>
+            <select>
+                <option value="">Company</option>
+            </select>
+        </div>
+        <div class="navbar-links">
+            <a href="">
+                <i class="fa-solid fa-download"></i>
+                Download App
+            </a>
+            <a class="sign-in" href="">
+                <i class="fa-solid fa-user"></i>
+                Sign In
+            </a>
+        </div>
+    </nav>
+
+    <div class="bank-account-container">
+        <div class="bank">
+            <img src="https://assetscdn1.paytm.com/images/catalog/view/342367/1725447383123.png" alt="">
+            <h1>Pay anyone directly from your <span style="color: #05a9da;">bank <br>account</span></h1>
+            <p>Pay anyone, everywhere. Make contactless & secure payments in-stores or online using
+                Paytm UPI or Directly from your Bank Account. Plus, send & receive money from anyone.</p>
+            <div class="bank-links">
+                <a href="">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/2834703/1725432129171.png" alt="">
+                </a>
+                <a href="">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/2834704/1725432148873.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <img class="bank-image" src="https://assetscdn1.paytm.com/images/catalog/view/1752741641420.png" alt="">
+    </div>
+
+    <div class="credit-super-container">
+        <div class="credit">
+            <img src="https://assetscdn1.paytm.com/images/catalog/view_item/2988623/27220898816562102.png" alt="">
+            <h1>One destination for <span style="color: #05a9da;">Credit Cards</span></h1>
+            <p>Paytm HDFC, SBI Card & Axis Bank Credit Card with<br>assured Cashback and incredible offers.</p>
+            <div class="apply">
+                <a href="">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+                <img src="https://assetscdn1.paytm.com/images/catalog/view_item/1741675100265.png" alt="">
+            </div>
+            <img class="credit-image" src="https://assetscdn1.paytm.com/images/catalog/view_item/2988623/27221716933469500.png" alt="">
+        </div>
+        <div class="credit super">
+            <img src="https://assetscdn1.paytm.com/images/catalog/view_item/2834804/1725623952233.png" alt="">
+            <h1>Insurance ka <span style="color: #05a9da;">Super Market</span></h1>
+            <p>A Smart, Simple & Transparent Platform to Explore & Purchase Insurance.</p><br>
+            <div class="apply">
+                <a href="">Get it Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <img class="credit-image" src="https://assetscdn1.paytm.com/images/catalog/view_item/2988624/27217428616091880.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="input-field">
+            <input type="text" placeholder="Enter Doctor name" id="name" />
+        </div> <br>
+
+        <div class="input-field">
+            <input type="text" placeholder="Enter age" id="age" />
+        </div> <br>
+
+        <div class="input-field">
+            <input type="text" placeholder="Enter gender" id="gender" />
+        </div> <br>
+
+        <div class="input-field">
+            <input type="text" placeholder="Enter salary" id="salary" />
+        </div> <br>
+
+        <div class="input-field">
+            <input type="text" placeholder="Enter specialization" id="specialization" />
+        </div> <br>
+
+        <button onclick="addDoctor()">Add Doctor</button>
+
+    </div>
+    <script>
+        async function addDoctor() {
+            let name = document.getElementById("name").value
+            let age = document.getElementById("age").value
+            let gender = document.getElementById("gender").value
+            let salary = document.getElementById("salary").value
+            let specialization = document.getElementById("specialization").value
+            let newDoctor = {
+                name, age, gender, salary, specialization
+            }
+            console.log(newDoctor)
+            await axios.post("https://doc-back.onrender.com/doctors", newDoctor)
+                .then((res) => {
+                    console.log(res)
+                    if (res.status == 201) {
+                        alert("Doctor added successfully")
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+    </script>
+</body>
+
+</html>

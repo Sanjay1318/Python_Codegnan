@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+
+<body>
+    <script>
+
+        // var name="ravi",age=27,gender="male"
+        // console.log(name,age,gender)
+
+        // var myObj = {
+        //     name: "ravi", age: 27, gender: "male"
+        // }
+        // console.log(myObj)
+        // console.log(myObj.name)
+        // console.log(Object.keys(myObj))     // returns only the keys
+        // console.log(Object.values(myObj))   // returns only the values
+        // console.log(Object.entries(myObj))  // returns in key value pair 
+
+        var students= [
+            {name:"ravi",age:12,gender:"male"},
+            {name:"sita",age:13,gender:"female"},
+            {name:"sneha",age:14,gender:"female"},
+            {name:"sharma",age:15,gender:"male"},
+        ]
+
+        console.log(students)
+
+        // console.log(students[0],students[1],students[2],students[3])
+        // students.forEach((i)=>{
+        //     console.log(i)
+        // })
+
+        var list=students.map((i)=>{
+            console.log(i)
+            return i.name
+        })
+
+        console.log(list)
+        
+    </script>
+</body>
+
+</html>

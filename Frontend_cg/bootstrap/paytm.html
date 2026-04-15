@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paytm using bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .bank {
+            border-radius: 20px;
+        }
+
+        .bank-title {
+            font-size: 3rem !important;
+        }
+
+        @media(max-width:576px) {
+            .bank-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* Show dropdown on hover */
+        .navbar .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Smooth dropdown */
+        .dropdown-menu {
+            transition: all 0.3s ease;
+        }
+
+        /* Remove arrow (Paytm style) */
+        .navbar .dropdown-toggle::after {
+            display: none;
+        }
+
+        /* Hover effect */
+        .nav-link:hover {
+            color: #00baf2 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom" style="height:70px;">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand me-4" href="#">
+                <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/logo_new.svg" height="35">
+            </a>
+
+            <!-- Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto align-items-center gap-3">
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link fw-semibold" href="#">Recharge & Bills</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item">Mobile Recharge</a></li>
+                            <li><a class="dropdown-item">Electricity Bill</a></li>
+                            <li><a class="dropdown-item">DTH Recharge</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link fw-semibold" href="#">Ticket Booking</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item">Flights</a></li>
+                            <li><a class="dropdown-item">Trains</a></li>
+                            <li><a class="dropdown-item">Movies</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link fw-semibold" href="#">Payments & Services</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item">UPI</a></li>
+                            <li><a class="dropdown-item">Wallet</a></li>
+                            <li><a class="dropdown-item">Postpaid</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link fw-semibold" href="#">Paytm for Business</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item">POS Billing</a></li>
+                            <li><a class="dropdown-item">Payment Gateway</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link fw-semibold" href="#">Company</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item">About</a></li>
+                            <li><a class="dropdown-item">Careers</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <!-- Right side -->
+                <div class="d-flex align-items-center gap-3">
+
+                    <!-- Download -->
+                    <a href="#" class="text-decoration-none fw-semibold text-dark">
+                        ⬇ Download App
+                    </a>
+
+                    <!-- Sign In -->
+                    <a href="#" class="btn rounded-pill px-3 d-flex align-items-center"
+                        style="background:#002970; color:white;">
+
+                        <span class="me-2">
+                            <i class="bi bi-person-circle"></i>
+                        </span>
+                        Sign In
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5 bg-white bank">
+        <div class="row align-items-center justify-content-end">
+            <div class="col-12 col-md-5">
+                <img class="w-25" src="https://assetscdn1.paytm.com/images/catalog/view/342367/1725447383123.png"
+                    alt="">
+                <h1 class="bank-title">Pay anyone directly from your <span style="color: #0078bb">bank account</span>
+                </h1>
+                <p>Pay anyone, everywhere. Make contactless & secure payments in-stores or online using Paytm UPI or
+                    Directly from your Bank Account. Plus, send & receive money from anyone.</p>
+                <div>
+                    <a href="" class="text-decoration-none">
+                        <img class="w-25"
+                            src="https://assetscdn1.paytm.com/images/catalog/view_item/2834703/1725432129171.png"
+                            alt="">
+                    </a>
+                    <a href="" class="text-decoration-none">
+                        <img class="w-25"
+                            src="https://assetscdn1.paytm.com/images/catalog/view_item/2834704/1725432148873.png"
+                            alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <img class="w-100" src="https://assetscdn1.paytm.com/images/catalog/view/1752741641420.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

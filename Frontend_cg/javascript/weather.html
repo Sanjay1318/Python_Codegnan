@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" placeholder="Enter city name" id="city"/>
+        <button>Search</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        let form=document.getElementById('form')
+        let cityField=document.getElementById('city')
+        let apikey='47e2c7596f7d41e2f5a89c149d2b60a9'
+        let result=document.getElementById('result')
+        form.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        let url=`https://api.openweathermap.org/data/2.5/weather?q=${cityField.value}&appid=${apikey}&units=metric`
+        fetch(url)
+        .then((res)=>{
+            console.log(res)
+            return res.json()
+        })
+        .then((res)=>{
+            console.log(res)
+            if(res.cod==='404'){
+                result.innerHTML=`city not found`
+                return
+            }
+            const {name,main,sys}=res
+            const weatherData={
+                name,temp:main.temp,country:sys.country
+            }
+            display(weatherData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+        console.log(cityField.value)
+    })
+    function display(weatherData){
+        result.innerHTML=`
+        <div>
+            <h1>City Name: ${weatherData.name}</h1>
+            <p>Temp: ${weatherData.temp}<sup>o</sup>C</p>
+            <p>Country:${weatherData.country}</p>
+        </div>`
+    }
+
+    </script>
+</body>
+</html>

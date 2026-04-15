@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <title>LV Minimal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .btn {
+            font-size: 13px;
+            padding: 10px 26px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline-dark:hover {
+            background: black;
+            color: white;
+        }
+
+        section img.w-100 {
+            margin: 40px 0;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .row {
+            row-gap: 50px;
+        }
+
+        .col-md-3 img {
+            transition: transform 0.3s ease;
+        }
+
+        .col-md-3 img:hover {
+            transform: scale(1.02);
+        }
+
+        .col-md-3 p {
+            font-size: 14px;
+            margin-top: 12px;
+            margin-bottom: 2px;
+        }
+
+        .col-md-3 small {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .nav-custom {
+            background: transparent;
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+            padding: 0 40px;
+        }
+
+        .nav-custom.scrolled,
+        .nav-custom:hover {
+            background: white;
+            color: black;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            color: inherit !important;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 6px;
+            color: inherit;
+        }
+
+        .dropdown-menu {
+            font-size: 14px;
+        }
+
+        /* ================= FONTS ================= */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            height: 100vh;
+            background: url("https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/collections/lv-sneakerina/LV_Sneakerina_HP_Push_Apr26_DI3.jpg?wid=1440") center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 100px;
+            text-align: center;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* ================= SECTION HEADINGS ================= */
+        .section-title {
+            font-size: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: 13px;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.8;
+        }
+
+        /* OFFCANVAS WIDTH */
+        .offcanvas {
+            width: 70%;
+        }
+
+        /* MENU ITEMS */
+        .menu-item {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 18px;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-link {
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .main-heading {
+            font-size: 30px;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .container-fluid {
+            padding-left: 60px !important;
+            padding-right: 60px !important;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-card {
+            text-align: center;
+        }
+
+        .product-card p {
+            min-height: 40px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .col-md-3 img {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .col-md-3 img:hover {
+            transform: scale(1.03);
+            opacity: 0.95;
+        }
+
+        .btn-outline-dark {
+            border-width: 1px;
+        }
+
+        .btn-outline-dark:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        .nav-custom.scrolled {
+            backdrop-filter: blur(6px);
+        }
+
+        /* ================= PRODUCT CARD WITH BG + HEART ================= */
+        .prod-img-wrap {
+            position: relative;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .prod-img-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .prod-img-wrap:hover img {
+            transform: scale(1.03);
+            opacity: 0.95;
+        }
+
+        .prod-heart {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 18px;
+            color: #1a1a1a;
+            cursor: pointer;
+            z-index: 2;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .prod-heart:hover {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="nav" class="navbar fixed-top nav-custom">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+
+            <!-- LEFT -->
+            <div class="d-flex align-items-center gap-4">
+                <a class="nav-link d-flex align-items-center gap-2" data-bs-toggle="offcanvas" href="#menuPanel">
+                    <i class="bi bi-list fs-5"></i>
+                    <span>Menu</span>
+                </a>
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-search"></i>
+                    <span>Search</span>
+                </a>
+            </div>
+
+            <!-- CENTER LOGO -->
+            <div class="logo text-center">LOUIS VUITTON</div>
+
+            <!-- RIGHT -->
+            <div class="d-flex align-items-center gap-4">
+                <a class="nav-link">Call Us</a>
+                <a class="nav-link"><i class="bi bi-heart"></i></a>
+                <a class="nav-link"><i class="bi bi-person"></i></a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- OFFCANVAS MENU -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuPanel">
+        <div class="offcanvas-header px-4">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            <span class="ms-2">Close</span>
+        </div>
+        <div class="offcanvas-body px-4">
+            <ul class="list-unstyled">
+                <li class="menu-item">Monogram Anniversary</li>
+                <li class="menu-item">Gifts and Personalisation</li>
+                <li class="menu-item">New</li>
+                <li class="menu-item">Bags and Wallets</li>
+                <li class="menu-item">Women</li>
+                <li class="menu-item">Men</li>
+                <li class="menu-item">Perfumes</li>
+                <li class="menu-item">Jewellery</li>
+                <li class="menu-item">Watches</li>
+                <li class="menu-item">Trunks, Travel and Home</li>
+                <li class="menu-item">Services</li>
+                <li class="menu-item">The Maison Louis Vuitton</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero text-white">
+        <div class="hero-content text-center">
+            <p class="small mb-2">WOMEN</p>
+            <h2 class="fw-light" style="font-size:40px;">Early Access: LV Sneakerina</h2>
+            <a href="#" class="text-white text-decoration-underline small">Discover the New Editions</a>
+        </div>
+    </section>
+
+    <!-- Section: Explore Maison Creations -->
+    <section class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="main-heading mb-5">Explore a Selection of the Maison's <br> Creations</h2>
+            <div class="row g-4">
+                <div class="col-md-3 product-card">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Women_Handbags_4_26_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Women's Handbags</p>
+                </div>
+                <div class="col-md-3 product-card">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/WSLG_2_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Women's Wallets and Small Leather Goods</p>
+                </div>
+                <div class="col-md-3 product-card">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Women_ACC_5_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Women's Accessories</p>
+                </div>
+                <div class="col-md-3 product-card">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/PERFUMES_Ambre_Levant_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Perfumes</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Men_Bags_26_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Men's Bags</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/MSLG_3_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Men's Wallets and Small Leather Goods</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Men_Shoes_26_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Men's Shoes</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/categories/evergreen/Men_Accessories_Sunglasses_26_WW_HP_category_Push_DII.jpg?wid=490" class="img-fluid">
+                    <p class="mt-3">Men's Sunglasses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER IMAGE -->
+    <section>
+        <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/collections/mlg-mslg/MLG_Keepall25_Archive_HP_Push_April26_DI3.jpg?wid=1440" class="img-fluid w-100">
+    </section>
+
+
+    <!-- MEN SECTION — with grey bg + heart icons -->
+    <section class="py-5 bg-light text-center">
+        <div class="container">
+            <p class="small">MEN</p>
+            <h2 class="fw-light mb-5">Monogram Archive</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-keepall-bandouliere-25--M28957_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Keepall Bandoulière 25</p>
+                    <small>₹2,40,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-keepall-25-cargo--M14981_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Keepall 25 Cargo</p>
+                    <small>₹2,82,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-satchel-wearable-wallet--M26805_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Satchel Wearable Wallet</p>
+                    <small>₹1,78,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-nil-gm--M27852_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Nil GM</p>
+                    <small>₹2,60,000.00</small>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BUTTON -->
+    <div class="text-center py-4 bg-light">
+        <button class="btn btn-outline-dark rounded-pill px-4">Discover the Selection</button>
+    </div>
+
+
+    <!-- FULL IMAGE -->
+    <section>
+        <img src="https://in.louisvuitton.com/content/dam/lv/online/picture/asiapacific/2026/SG_Carryall_DI3.jpg?wid=1440" class="img-fluid w-100">
+    </section>
+
+
+    <!-- WOMEN BAGS — with grey bg + heart icons -->
+    <section class="py-5 bg-light text-center">
+        <div class="container">
+            <p class="small">WOMEN</p>
+            <h2 class="fw-light mb-5">Monogram Signature Bags</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-carryall-east-west--M28101_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">CarryAll East West</p>
+                    <small>₹2,57,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-carryall-east-west--M28101_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">All In BB</p>
+                    <small>₹2,42,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-trunk-20--M13146_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Speedy Trunk 20</p>
+                    <small>₹3,10,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-multipass--M27825_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Multipass</p>
+                    <small>₹2,53,000.00</small>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BUTTON -->
+    <div class="text-center py-4 bg-light">
+        <button class="btn btn-outline-dark rounded-pill px-4">Discover the Selection</button>
+    </div>
+
+
+    <!-- FULL IMAGE -->
+    <section>
+        <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2026/central/collections/wacc/LV_Charms_HP_Push_Apr26_DI3.jpg?wid=1440" class="img-fluid w-100">
+    </section>
+
+
+    <!-- CHARMS — with grey bg + heart icons -->
+    <section class="py-5 bg-light text-center">
+        <div class="container">
+            <p class="small">WOMEN</p>
+            <h2 class="fw-light mb-5">LV Charms</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-charms-bracelet--M1985A_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">LV Charms Bracelet</p>
+                    <small>₹51,500.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-charms-bracelet--M1985A_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Mini Vivienne Dore LV Charm</p>
+                    <small>₹15,200.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-pouch-metis-belt---M4869Z_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Pouch Metis Belt</p>
+                    <small>₹1,13,000.00</small>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="prod-img-wrap">
+                        <button class="prod-heart" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                        <img src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-mini-bags-dangling-lv-charms--M03948_PM2_Front%20view.png?wid=490&hei=490" class="img-fluid">
+                    </div>
+                    <p class="mt-2">Mini Bags Dangling LV Charms</p>
+                    <small>₹45,500.00</small>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP BUTTON -->
+    <div class="text-center py-5 bg-light">
+        <button class="btn btn-outline-dark rounded-pill px-4">Personalise Now</button>
+    </div>
+
+
+    <!-- SERVICES SECTION -->
+    <section class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="section-title">Louis Vuitton Services</h2>
+            <p class="section-desc">
+                Louis Vuitton offers an array of tailored services — including Client Advisor<br> support,
+                signature gift wrapping, and exclusive personalisation options.
+            </p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2024/central/services/LV_ContactUs_WW_HP_Services_Push_20240425_DII.jpg?wid=490" class="img-fluid">
+                    <h6 class="mt-3">Services</h6>
+                    <a href="#" class="text-dark text-decoration-underline small">Contact Us</a>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2024/central/services/LV_Gifting_WW_HP_Services_Push_20240425_DII.jpg?wid=490" class="img-fluid">
+                    <h6 class="mt-3">Art of Gifting</h6>
+                    <div>
+                        <a href="#" class="text-dark text-decoration-underline small me-2">Gifts for Women</a>
+                        <a href="#" class="text-dark text-decoration-underline small">Gifts for Men</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://ap.louisvuitton.com/images/is/image//content/dam/lv/editorial-content/New-Homepage/2025/central/services/LV_Personalization_WW_HP_Services_Push_1104_DII.jpg?wid=490" class="img-fluid">
+                    <h6 class="mt-3">Personalisation</h6>
+                    <a href="#" class="text-dark text-decoration-underline small">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-top pt-5">
+        <div class="container">
+            <div class="row text-start">
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase small mb-3">Help</h6>
+                    <p class="small mb-2">
+                        A Client Advisor is available at
+                        <a href="#" class="text-dark">1800 103 9988</a><br>
+                        You can also <a href="#" class="text-dark">chat</a> or
+                        <a href="#" class="text-dark">email us</a>.
+                    </p>
+                    <p class="small mb-1">FAQ</p>
+                    <p class="small mb-1">Product Care</p>
+                    <p class="small">Stores</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase small mb-3">Services</h6>
+                    <p class="small mb-1">Repairs</p>
+                    <p class="small mb-1">Personalisation</p>
+                    <p class="small mb-1">Art of Gifting</p>
+                    <p class="small">Download our Apps</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase small mb-3">About Louis Vuitton</h6>
+                    <p class="small mb-1">Fashion Shows</p>
+                    <p class="small mb-1">Arts &amp; Culture</p>
+                    <p class="small mb-1">La Maison</p>
+                    <p class="small mb-1">Sustainability</p>
+                    <p class="small mb-1">Latest News</p>
+                    <p class="small mb-1">Ethics and Compliance</p>
+                    <p class="small mb-1">Careers</p>
+                    <p class="small">Foundation Louis Vuitton</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase small mb-3">Connect</h6>
+                    <p class="small">
+                        <a href="#" class="text-dark text-decoration-none">
+                            Sign up for Louis Vuitton emails and receive the latest news
+                            from the Maison, including exclusive online pre-launches and new collections.
+                        </a>
+                    </p>
+                    <p class="small">Follow Us</p>
+                </div>
+            </div>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center small">
+                <p class="mb-0">🇮🇳 India</p>
+                <div class="d-flex gap-4">
+                    <span>Sitemap</span>
+                    <span>Legal &amp; Privacy</span>
+                    <span>Cookies</span>
+                </div>
+            </div>
+            <div class="row pt-4 small text-secondary text-start">
+                <div class="col-md-6 mb-4">
+                    <p class="mb-2">Full Name and Address of the Manufacturer</p>
+                    <p class="mb-0">
+                        Louis Vuitton Malletier SAS<br>
+                        2 Rue du Pont Neuf<br>
+                        75034 Paris CEDEX 01<br>
+                        FRANCE
+                    </p>
+                    <p class="mt-2">Please refer to the product label for specific country of origin for each product.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <p class="mb-2">Full Name and Address of the Importer</p>
+                    <p class="mb-0">
+                        Louis Vuitton India Retail Private Limited<br>
+                        901A Ninth Floor, Time Tower, MG Road<br>
+                        Gurgaon, Haryana - 122002<br>
+                        INDIA
+                    </p>
+                </div>
+            </div>
+            <div class="text-center py-4">
+                <h5 class="fw-semibold" style="letter-spacing:3px;">LOUIS VUITTON</h5>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Script -->
+    <script>
+        const nav = document.getElementById("nav");
+        function updateNavbar() {
+            if (window.scrollY > 50) {
+                nav.classList.add("scrolled", "shadow-sm");
+            } else {
+                nav.classList.remove("scrolled", "shadow-sm");
+            }
+        }
+        window.addEventListener("scroll", updateNavbar);
+        nav.addEventListener("mouseenter", () => { nav.classList.add("scrolled", "shadow-sm"); });
+        nav.addEventListener("mouseleave", () => { updateNavbar(); });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
