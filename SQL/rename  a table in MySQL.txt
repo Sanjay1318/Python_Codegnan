@@ -1,0 +1,21 @@
+rename  a table in MySQL
+
+--> RENAME TABLE user_data TO users;
+
+-->  ALTER TABLE old_table_name
+RENAME TO new_table_name;
+
+rename a column in MySQL:
+
+--> alter table table_name rename column old_name to new_name;
+
+-->  ALTER TABLE table_name
+RENAME COLUMN old_col1 TO new_col1,
+RENAME COLUMN old_col2 TO new_col2;
+
+--> ALTER TABLE table_name  CHANGE old_name  new_name  VARCHAR(10);(datatype must be specified)
+
+--> ALTER TABLE user_data
+CHANGE user username VARCHAR(20),
+CHANGE pin password VARCHAR(10),
+CHANGE profile_name full_name VARCHAR(20);

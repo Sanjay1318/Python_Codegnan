@@ -1,0 +1,17 @@
+adding a column in MySQL:
+
+**-->alter  table table_name add column_name1 datatype constraints position ,
+add column_name2 datatype constraints position;
+
+(here position is default at last. but, can be at first|after column_name)
+
+Droping a column in mysql:
+
+--> alter  table table name drop column column_name, drop column column_name;
+
+Modify column (change datatype / constraints)
+
+-->  ALTER TABLE table_name
+MODIFY column1 datatype,
+MODIFY column2 datatype,
+MODIFY column3 datatype;
