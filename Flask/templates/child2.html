@@ -1,0 +1,37 @@
+{% extends "parent.html" %}
+
+{% block title %} child2 page {% endblock %}
+
+{% block content %}
+
+<center>
+
+    <font color="red"><h1>this is content of the child2 page</h1></font>
+    {% with data=["sivakrishna","ramakrishna","vikram krishna"] %}
+
+    {% for name in data %}
+        <h2> hello <font color="Fuchsia">{{name | upper }} </font> </h2>
+            {% endfor %}
+
+            {% endwith %}
+
+    {% with score=[100,75,83,41,56] %}
+     {% for  mark in score %}
+       {% if mark>95 and mark <=100 %}
+          <h2> hello  your garde is merit  as your score is <font color="Fuchsia">{{mark}} </font> </h2>
+        {% elif mark>=80 and mark <=90 %}
+         <h2> hello  your garde is A as your score is <font color="BlueViolet">{{mark}} </font> </h2>
+        {% elif mark>=70 and mark <=80 %}
+         <h2> hello  your garde is B as your score is <font color="Brown">{{mark}} </font> </h2>   
+        {% elif mark>=50 and mark <=70 %}
+         <h2> hello  your garde is C as your score is <font color="OrangeRed">{{mark}} </font> </h2>
+         
+         {% else %}
+
+          <h2> hello  your garde is D as your score is <font color="DarkKhaki">{{mark}} </font> </h2>
+
+        {% endif %} {% endfor %} {% endwith %}
+
+</center>
+
+{% endblock %}

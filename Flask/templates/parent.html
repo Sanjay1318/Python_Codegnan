@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}parent page {% endblock %}</title>
+</head>
+<body bgcolor="LemonChiffon">
+
+   <font align="left"> <h1> application name</h1></font>
+   <font color="MidnightBlue" align="center"><h2>  this is a fixed value in all pages</h2></font>
+
+   {% block content %}
+   <font color="red"> hello this is the content of this application from parent page</font> <br>
+
+   {%  endblock %}
+
+   <footer style="background-color: rgb(193, 238, 223); border: 10; border-color: rgb(94, 212, 68);">
+{% block footer %}
+
+<h3> about</h3>
+<h3>cookoies</h3>
+<h3> sessions</h3>
+<h3>contact to <a> www.myapplication.com</a> <a> www.onlineapp@gmail.com</a></h3>
+
+{% endblock %}
+   </footer>
+
+
+
+
+    
+</body>
+</html>
